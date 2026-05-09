@@ -1,0 +1,57 @@
+.name {
+    margin: 25px 0;
+    color:cornflowerblue;
+    font-size:50px;
+    font-family:"楷体";
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+   padding-top: 6px;
+   padding-bottom: 6px;
+    background-color:blue;
+}
+
+li {
+    display:inline;
+}
+
+li a{
+    display: inline;
+    color:aliceblue;
+    padding:8px 16px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: #555;
+    color:white;
+}
+
+.logo{
+    display:block;
+    margin:0 auto;
+    margin-top:50px;
+    width:200px;
+    height: auto;
+}
+
+body{
+    /* 背景图片*/
+    background-image: url("./OIP-C.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.spirit{
+    padding:25px;
+    color:black;
+    font-size: 50px;
+    font-family: "华文行楷";
+    text-align: center;
+}
