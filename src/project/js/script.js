@@ -41,3 +41,13 @@ document.querySelector('.scroll-hint').addEventListener('click', function() {
         behavior: 'smooth'
     });
 });
+
+//背景音乐播放控制
+function toggleMusic(){
+    const music = document.getElementById('bgMusic');
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
