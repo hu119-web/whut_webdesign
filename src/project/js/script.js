@@ -75,3 +75,27 @@ function toggleMusic(){
         music.pause();
     }
 }
+
+//樱花飘落特效
+const sakuraImg = "images/樱花飘落.png";
+const count = 35;
+
+const container = document.getElementById("sakuraContainer");
+
+for(let i = 0; i < count; i++){
+    let flower = document.createElement("img");
+    flower.src = sakuraImg;
+    flower.className = "sakura";
+
+    let left = Math.random() * 100;
+    let delay = Math.random() * 8;
+    let time = 8 + Math.random() * 12;
+    let size = 12 + Math.random() * 18;
+
+    flower.style.left = left + "%";
+    flower.style.animationDelay = delay + "s";
+    flower.style.animationDuration = time + "s";
+    flower.style.width = size + "px";
+
+    container.appendChild(flower);
+}
