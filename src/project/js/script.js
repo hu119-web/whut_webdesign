@@ -75,3 +75,11 @@ function toggleMusic(){
         music.pause();
     }
 }
+
+
+//背景图淡出切换
+setTimeout(()=>{
+    document.body.style.backgroundImage = "url('./images/library.png')"
+},3000);
+
+

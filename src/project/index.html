@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>武汉理工大学 - 校园导航</title>
     <link rel="icon" href="./images/wuhan-university-of-technology-logo-1024px.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../fontawesome-free-7.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!--背景音乐-->
     <audio id="bgMusic" src="../../audio/贵族乐团 - 卡农d大调.mp3" loop></audio>
+    <!--入场动画-->
+    <div class="enter">
+        <div class="enterimg">
+            <div class="enterlogo"></div>
+            <div class="enter-word"></div>
+        </div>
+    </div>
     <!-- 樱花容器 -->
     <div class="sakura-container" id="sakuraContainer"></div>
     <!-- 固定定位的Logo - 左上角 -->
     <div class="logo-fixed">
-        <a href="https://www.whut.edu.cn/" target="_blank" class="logo-link">
+        <a class="logo-link">
             <img src="images/wuhan-university-of-technology-logo-1024px.png" alt="武汉理工大学logo" class="logo">
         </a>
         <div class="school-abbr">武汉理工大学</div>
@@ -25,7 +33,6 @@
     <nav class="nav-fixed" id="home">
         <ul>
             <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
-            <li><a href="https://www.whut.edu.cn/" target="_blank"><i class="fas fa-home"></i> 学校官网</a></li>
             <li><a href="#features-container"><i class="fas fa-utensils"></i> 食在理工</a></li>
             <li><a href="#study"><i class="fas fa-book-open"></i> 学在理工</a></li>
             <li><a href="#sight"><i class="fas fa-map-marked-alt"></i> 游在理工</a></li>
@@ -34,17 +41,29 @@
     </nav>
 
     <!-- 主要内容 - 首页只显示名称和校训 -->
-    <main class="container">
+    <!--<main class="container">
         <div class="main-content">
             <div class="name">帆起江城</div>
             <h3 class="spirit">厚德博学 追求卓越</h3>
             
-            <!-- 滚动提示箭头 -->
-            <div class="scroll-hint">
+             滚动提示箭头 
+            
+        </div>
+    </main>-->
+
+    <!--入场文字-->
+    <main class="enterword">
+        <div class="spirit">
+            <h3>厚德博学 追求卓越</h3>
+        </div>
+        <div class="scroll-hint">
                 <i class="fas fa-chevron-down"></i>
-            </div>
+        </div>
+        <div class="word">
+            <h3>探索武汉理工大学</h3>
         </div>
     </main>
+
 
     <!-- 特色功能区 - 下滑展示 -->
     <section class="features-section" id="features">
