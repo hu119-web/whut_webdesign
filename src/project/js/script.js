@@ -79,7 +79,37 @@ function toggleMusic(){
         music.pause();
     }
 }
+// 创建樱花飘落效果
+function createSakura() {
+    const container = document.getElementById('sakuraContainer');
+    const sakuraCount = 30;
+    
+    for (let i = 0; i < sakuraCount; i++) {
+        const sakura = document.createElement('div');
+        sakura.className = 'sakura';
+        
+        // 随机位置和大小
+        const size = Math.random() * 10 + 10;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 10 + 10;
+        
+        sakura.style.width = `${size}px`;
+        sakura.style.height = `${size}px`;
+        sakura.style.left = `${left}%`;
+        sakura.style.animationDelay = `${delay}s`;
+        sakura.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(sakura);
+    }
+}
 
+// 在入场动画结束后创建樱花
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        createSakura();
+    }, 3000);
+});
 
 
 
