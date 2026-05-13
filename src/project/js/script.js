@@ -48,20 +48,24 @@ const count = 55;
 
 const container = document.getElementById("sakuraContainer");
 
+container.innerHTML="";
+
 for(let i = 0; i < count; i++){
     let flower = document.createElement("img");
     flower.src = sakuraImg;
     flower.className = "sakura";
 
     let left = Math.random() * 100;
-    let delay = Math.random() * 8;
-    let time = 8 + Math.random() * 12;
-    let size = 12 + Math.random() * 16;
+    let delay = Math.random() * 10;
+    let time = 8 + Math.random() * 10;
+    let size = 12 + Math.random() * 20;
 
     flower.style.left = left + "%";
     flower.style.animationDelay = delay + "s";
     flower.style.animationDuration = time + "s";
     flower.style.width = size + "px";
+
+    flower.style.transform = 'rotate(${Math.random() * 360}deg)';
 
     container.appendChild(flower);
 }
@@ -77,9 +81,5 @@ function toggleMusic(){
 }
 
 
-//背景图淡出切换
-setTimeout(()=>{
-    document.body.style.backgroundImage = "url('./images/library.png')"
-},3000);
 
 
