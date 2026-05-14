@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武汉理工大学 - 校园导航</title>
+    <link rel="icon" href="./image/wuhan-university-of-technology-logo-1024px.png" type="image/png">
+    <link rel="stylesheet" href="fontawesome-free-7.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="src/css/core.css">
+    <link rel="stylesheet" href="src/css/page.css">
+</head>
+
+<body>
+    <!--背景音乐-->
+    <audio id="bgMusic" src="audio/贵族乐团 - 卡农d大调.mp3" loop></audio>
+    <!--入场动画-->
+    <div class="enter">
+        <div class="enter-text">
+            <p class="line1">厚德博学</p>
+            <p class="line2">追求卓越</p>
+        </div>
+    </div>
+    <!-- 樱花容器 -->
+    <div class="sakura-container" id="sakuraContainer"></div>
+    <!-- 固定定位的Logo - 左上角 -->
+    <div class="logo-fixed">
+        <img src="image/wuhan-university-of-technology-logo-1024px.png" alt="武汉理工大学logo" class="logo">
+        <div class="school-abbr">武汉理工大学</div>
+    </div>
+    
+    <!-- 固定定位的导航栏 - 右上角 -->
+    <nav class="nav-fixed" id="nav">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
+            <li><a href="#food"><i class="fas fa-utensils"></i> 食在理工</a></li>
+            <li><a href="#study"><i class="fas fa-book-open"></i> 学在理工</a></li>
+            <li><a href="#sight"><i class="fas fa-map-marked-alt"></i> 游在理工</a></li>
+            <li><a href="javascript:void(0);" class="music-btn" onclick="toggleMusic()"><i class="fas fa-music"></i> 背景音乐</a></li>
+        </ul>
+    </nav>
+    
+    <!--首页全屏板块-->
+    <section class="fullscreen-section home" id="home">
+        <div class="container">
+            <h2 class="hero-subtitle">厚德博学 · 追求卓越</h2>
+            <div class="scroll-hint">↓ 探索校园 ↓</div>
+        </div>
+    </section>
+
+    
+
+    
+    <!--食在理工-->
+    <section class="fullscreen-section food" id="food">
+        <div class="section-content">
+            <div class="feature-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h3 class="feature-title">食在理工</h3>
+            <p class="feature-desc">探索南湖校区、升升公寓、鉴湖校区等各食堂美食，从热干面到特色小吃，满足你的味蕾。</p>
+        </div>
+    </section>
+
+    <!--学在理工-->
+    <section class="fullscreen-section study" id="study">
+        <div class="section-content">
+            <div class="feature-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <h3 class="feature-title">学在理工</h3>
+            <p class="feature-desc">图书馆资源、自习室分布、特色专业介绍，助力你在学术道路上不断前行。</p>
+        </div>
+    </section>
+
+    <!--游在理工-->
+    <section class="fullscreen-section sight" id="sight">
+        <div class="section-content">
+            <div class="feature-icon">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3 class="feature-title">游在理工</h3>
+            <p class="feature-desc">漫步南湖畔、参观飞马广场、打卡特色建筑，感受理工大的校园美景。</p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-text">© 2026 武汉理工大学 校园导航测试页面 | 数据来源：武汉理工大学官网</p>
+    </footer>
+
+    <script src="src/js/script.js"></script>
+    <script src="src/js/sakura.js"></script>
+</body>
+</html>
