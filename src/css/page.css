@@ -93,6 +93,7 @@ footer {
     ul { max-width: 250px; }
     li a { padding: 5px 8px; font-size: 0.75rem; }
 }
+
 /* ========== 食在理工板块样式 ========== */
 #food {
   background: url("../../image/yue_canteen.png");
