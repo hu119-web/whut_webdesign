@@ -95,7 +95,11 @@ footer {
 }
 /* ========== 食在理工板块样式 ========== */
 #food {
-    background: rgba(255, 255, 255, 0.3);
+  background: url("../../image/yue_canteen.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 #food .section-content {
     height:1000px;
