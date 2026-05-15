@@ -93,3 +93,161 @@ footer {
     ul { max-width: 250px; }
     li a { padding: 5px 8px; font-size: 0.75rem; }
 }
+/* ========== 食在理工板块样式 ========== */
+#food {
+  background-color: #fff; 
+}
+
+/* 卡片容器布局 */
+.food-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 单个卡片样式 */
+.food-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+/* 卡片悬浮效果（和你其他板块的hover逻辑统一） */
+.food-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* 图片容器 */
+.food-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.food-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* 图片放大效果 */
+.food-card:hover .food-img {
+  transform: scale(1.08);
+}
+
+/* 卡片文字部分 */
+.food-text {
+  padding: 18px;
+}
+
+.food-name {
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: #222;
+}
+
+.food-intro {
+  font-size: 14px;
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .food-card-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  .food-img-wrapper {
+    height: 180px;
+  }
+}
+/* 侧边竖向无限滚动美食卡片 */
+.scroll-food-wrap {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin-top: 50px;
+}
+
+/* 左右滚动盒子定位在页面两侧 */
+.scroll-box {
+    position: absolute;
+    width: 160px;
+    height: 100%;
+    overflow: hidden;
+}
+.left-scroll {
+    left: 20px;
+}
+.right-scroll {
+    right: 20px;
+}
+
+/* 滚动列表 竖向排列 */
+.scroll-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 美食侧边卡片样式 */
+.food-side-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+}
+.food-side-card:hover{
+    transform: scale(1.05);
+}
+.food-side-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+.food-side-card span {
+    display: block;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* 左侧向上无限滚动动画 */
+.left-scroll .scroll-list{
+    animation: scrollUp 20s linear infinite;
+}
+/* 右侧反向滚动 */
+.right-scroll .scroll-list{
+    animation: scrollDown 20s linear infinite;
+}
+
+/* 滚动关键帧 */
+@keyframes scrollUp {
+    0%{transform: translateY(0);}
+    100%{transform: translateY(-50%);}
+}
+@keyframes scrollDown {
+    0%{transform: translateY(-50%);}
+    100%{transform: translateY(0);}
+}
+
+/* 移动端隐藏两侧滚动卡片 */
+@media (max-width:768px) {
+    .scroll-box{
+        display: none;
+    }
+}
