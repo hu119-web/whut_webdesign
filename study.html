@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 适配移动端与桌面端，禁止缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 网页关键字与描述，完善网页信息 -->
+    <meta name="keywords" content="武汉理工,南湖校园,研学展示,校园风采">
+    <meta name="description" content="学在理工校园风采全景环形展示页面">
+    <!-- 网页标题 -->
+    <title>学在理工 - 全景研学展示</title>
+    <style>
+        /* 全局样式重置 完善基础布局 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 根页面全局样式 */
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            /* 全屏校园背景图 */
+            background: url("image/南湖风景.png") no-repeat center center fixed;
+            background-size: cover;
+            /* 深色蒙版提升文字对比度 */
+            background-color: rgba(0, 0, 0, 0.6);
+            background-blend-mode: multiply;
+            /* 统一全局字体 */
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+            color: #ffffff;
+            /* 禁止页面选中文字 */
+            user-select: none;
+        }
+
+        /* 通用过渡动画统一规范 */
+        a, div, img {
+            transition: all 0.3s ease;
+        }
+
+        /* 顶部返回导航按钮 完善hover交互 */
+        .back {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            padding: 12px 24px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            z-index: 9999;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .back:hover {
+            background: rgba(110, 200, 255, 0.3);
+            border-color: #6fc8ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(110, 200, 255, 0.2);
+        }
+
+        /* 左侧竖排主题标题 优化字体与光影 */
+        .vertical-title {
+            position: fixed;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: 12px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(110, 200, 255, 0.8);
+            z-index: 999;
+        }
+
+        /* 环形布局外层容器 居中定位规范化 */
+        .circle-box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 720px;
+            height: 720px;
+            z-index: 100;
+        }
+
+        /* 中心装饰环形线条 纯视觉装饰 */
+        .circle-line {
+            position: absolute;
+            width: 540px;
+            height: 540px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 环形圆形图片容器 完善圆角溢出与阴影 */
+        .image-item {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        /* 图片内部自适应填充 */
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 图片悬浮高亮特效 */
+        .image-item:hover {
+            border-color: #6fc8ff;
+            box-shadow: 0 0 35px rgba(110, 200, 255, 0.8);
+            scale: 1.05;
+        }
+
+        /* 中央文字介绍弹窗 玻璃态完善 */
+        .info-box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 460px;
+            padding: 45px 35px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transition: all 0.7s ease;
+            text-align: center;
+            z-index: 150;
+            box-shadow: 0 0 40px rgba(0, 140, 255, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        /* 弹窗显示状态 */
+        .info-box.show {
+            opacity: 1;
+        }
+        /* 弹窗标题样式 */
+        .info-box h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #6fc8ff;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        /* 弹窗正文文本样式 */
+        .info-box p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.9;
+            text-align: justify;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面顶部返回导航 -->
+    <a href="index.html#study" class="back">← 返回首页</a>
+
+    <!-- 页面左侧竖排主题大字 -->
+    <div class="vertical-title">
+        学 在 理 工
+    </div>
+
+    <!-- 环形展示主容器 -->
+    <div class="circle-box" id="box">
+        <!-- 中心装饰圆环 -->
+        <div class="circle-line"></div>
+        <!-- 中心文字介绍展示容器 -->
+        <div class="info-box" id="info"></div>
+    </div>
+
+    <script>
+        /**
+         * 校园研学展示数据源
+         * 存储所有图片路径、标题、介绍文案
+         * 结构清晰便于后期增删修改
+         */
+        const campusData = [
+            {
+                img: "image/南湖图书馆.png",
+                title: "书香馆藏・图书馆研学",
+                text: "武汉理工大学坐拥南湖、西院、余家头三大现代化图书馆，馆藏纸质文献超 400 万册、电子资源超百个数据库，阅览席位近万席。馆内配备 24 小时自习室、静音研读区、数字资源体验区，从清晨的第一缕阳光到深夜的台灯微光，这里永远有埋头苦读的身影。学子们在此刷题备考、研读专业典籍、查阅前沿文献，沉浸式的静谧环境与浓厚学习氛围，成为理工学子沉淀学识、追逐目标的 “知识港湾”。"
+            },
+            {
+                img: "image/师者传道.png",
+                title: "师者传道・课堂研学",
+                text: "课堂是理工学子汲取知识的核心阵地，学校汇聚了一批深耕学术的名师学者，他们以严谨的教风、生动的授课方式，将专业理论与行业前沿动态深度融合。无论是阶梯教室里的深入浅出讲解，还是小班研讨课上的师生互动交流，每一堂课都紧扣学科核心，夯实专业根基。在这里，学子们不仅收获了扎实的学识，更在老师的启发下培养了批判性思维与问题解决能力，为后续专业学习与科研探索筑牢基础。"
+            },
+            {
+                img: "image/科研实训.png",
+                title: "科创实训・实验室研学",
+                text: "作为工科强校，武汉理工大学为学子搭建了覆盖材料、交通、机械、计算机等优势学科的高标准实验室与科创平台。学子们走出课本，走进实验室，亲手操作精密仪器、开展实验验证、攻克技术难题，将课堂上学到的理论知识转化为可落地的实践能力。从基础课程实验到国家级科创项目，从材料性能测试到智能系统开发，实验室里的每一次尝试、每一次突破，都在锤炼学子的工科实干素养与创新思维，为未来投身行业前沿打下坚实基础。"
+            },
+            {
+                img: "image/学海争锋.png",
+                title: "学海争锋・竞赛研学",
+                text: "校园内各类学科竞赛与专业比拼氛围浓厚，学校大力支持学子组队参与数学建模、电子设计、机械创新、智能车等各类赛事。学子们组建团队，利用课余时间研讨知识点、打磨方案、反复测试，在备赛过程中查漏补缺、互帮互助。从校内选拔赛的初露锋芒，到省级、国家级赛场的并肩作战，每一次竞赛都是一次对学识、抗压能力与团队协作的全方位锻炼，不仅拓宽了学子的学术视野，更让他们在竞争中突破自我，收获成长。"
+            },
+            {
+                img: "image/知行致远.png",
+                title: "知行致远・户外研学交流",
+                text: "学习不止局限于教室与图书馆，校园的湖畔、林荫道、飞马广场旁，处处可见学子学习交流的身影。清晨的南湖畔，学子们迎着朝阳晨读背诵；午后的林荫道上，小组围坐讨论学业难题；周末的校园里，同学们结伴开展户外研学，梳理知识体系、交流学习心得。这种轻松自在的学习模式，既缓解了学业压力，又促进了同学间的互助互鉴，让知识在交流中沉淀，在实践中深化。"
+            },
+            {
+                img: "image/朝夕共进.png",
+                title: "朝夕共进・宿舍勤学氛围",
+                text: "浓厚的学风浸润校园的每一个角落，宿舍成为理工学子晚间学习的重要阵地。在这里，室友们互相督促打卡学习，分享课堂笔记与备考技巧，讨论难题解法、交流学习经验。一盏台灯下，几个人伏案刷题、互相讲解，营造出互帮互助、共同进步的勤学氛围。朝夕相伴的陪伴与鼓励，让学子们在学业路上不再孤单，携手攻克难点、稳步前行，用点滴努力奔赴各自的目标。"
+            }
+        ];
+
+        // 获取DOM元素节点
+        const mainBox = document.getElementById('box');
+        const infoShowBox = document.getElementById('info');
+        // 环形排布基础半径
+        const circleRadius = 250;
+        // 图片向外偏移距离
+        const moveDistance = 85;
+
+        /**
+         * 动态生成环形排列图片
+         * 均分6个角度完成环形布局
+         */
+        campusData.forEach((item, index) => {
+            // 计算单个图片旋转角度
+            const angle = (index / 6) * Math.PI * 2 - Math.PI / 2;
+            // 计算图片初始定位坐标
+            const posX = 360 + circleRadius * Math.cos(angle);
+            const posY = 360 + circleRadius * Math.sin(angle);
+
+            // 创建图片DOM元素
+            const imgDom = document.createElement('div');
+            imgDom.className = 'image-item';
+            imgDom.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
+            // 定位图片位置
+            imgDom.style.left = `${posX - 65}px`;
+            imgDom.style.top = `${posY - 65}px`;
+
+            // 鼠标移入事件：图片扩散+展示介绍文案
+            imgDom.addEventListener('mouseenter', function() {
+                // 所有环形图片向外扩散
+                document.querySelectorAll('.image-item').forEach((dom, idx) => {
+                    const a = (idx / 6) * Math.PI * 2 - Math.PI / 2;
+                    const offsetX = moveDistance * Math.cos(a);
+                    const offsetY = moveDistance * Math.sin(a);
+                    dom.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                });
+                // 赋值文案并显示弹窗
+                infoShowBox.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
+                infoShowBox.classList.add('show');
+            });
+
+            // 鼠标移出事件：图片回归原位+隐藏文案
+            imgDom.addEventListener('mouseleave', function() {
+                document.querySelectorAll('.image-item').forEach(dom => {
+                    dom.style.transform = 'translate(0, 0)';
+                });
+                infoShowBox.classList.remove('show');
+            });
+
+            // 将图片元素插入主容器
+            mainBox.appendChild(imgDom);
+        });
+    </script>
+</body>
+</html>
