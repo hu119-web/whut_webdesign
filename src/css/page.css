@@ -96,37 +96,43 @@ footer {
 
 /* ========== 食在理工板块样式 ========== */
 #food {
-  background: url("../../image/yue_canteen.png");
+  background: url("../../image/food11.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
+
 #food .section-content {
-    height:1000px;
-    width:100%;
-    max-width:1000px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background: rgba(255, 255, 255, 0.5);
+    height: 1000px;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 1;
+    overflow: hidden; 
 }
-    
-/* 侧边竖向无限滚动美食卡片 */
+
+/* 侧边竖向无限滚动容器 - 关键修复：限制溢出 */
 .scroll-food-wrap {
     position: relative;
     width: 100%;
     height: 600px;
     margin-top: 50px;
+    z-index: 2;
+    overflow: hidden; /* 限制整个滚动区域不超出板块 */
 }
 
-/* 左右滚动盒子定位在页面两侧 */
+/* 左右滚动盒子 - 允许内容超出自身，但被父容器裁剪 */
 .scroll-box {
     position: absolute;
     width: 200px;
     height: 100%;
-    overflow: hidden;
+    overflow: visible; /* 允许悬浮卡片超出滚动盒子 */
 }
 .left-scroll {
     left: 20px;
@@ -135,21 +141,24 @@ footer {
     right: 20px;
 }
 
-/* 滚动列表 竖向排列 */
+/* 滚动列表 - 解决鼠标穿透问题 */
 .scroll-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    pointer-events: unset !important;
 }
 
-/* 美食侧边卡片样式 */
+/* 美食卡片基础样式 - 强制定位与可见性 */
 .food-side-card {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
+    overflow: visible !important; /* 允许悬浮卡片超出卡片自身 */
     text-align: center;
     transition: 0.3s;
+    position: relative !important;
+    z-index: 3;
 }
 .food-side-card:hover{
     transform: scale(1.05);
@@ -166,16 +175,60 @@ footer {
     color: #333;
 }
 
-/* 左侧向上无限滚动动画 */
+/* 悬浮卡片 - 避开transform冲突，改用margin-top居中 */
+.food-hover-card {
+    position: absolute !important;
+    top: 50% !important;
+    margin-top: -110px !important; /* 卡片高度约220px，取一半实现垂直居中 */
+    width: 220px !important;
+    padding: 14px 16px !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2) !important;
+    z-index: 9999 !important; /* 最高层级，确保在最上层 */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 强化悬停权重 - 强制触发显示 */
+body .food-side-card:hover .food-hover-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 卡片文字样式 */
+.food-hover-card h4 {
+    font-size: 16px !important;
+    color: #c0392b !important;
+    margin: 0 0 6px 0 !important;
+}
+.food-hover-card p {
+    font-size: 13px !important;
+    color: #333 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+/* 左侧卡片 → 向右空白处弹出 */
+.left-scroll .food-hover-card {
+    left: 110% !important;
+    right: auto !important;
+}
+
+/* 右侧卡片 → 向左空白处弹出 */
+.right-scroll .food-hover-card {
+    right: 110% !important;
+    left: auto !important;
+}
+
+/* 原有无限滚动动画 - 不受影响 */
 .left-scroll .scroll-list{
     animation: scrollUp 30s linear infinite;
 }
-/* 右侧反向滚动 */
 .right-scroll .scroll-list{
     animation: scrollDown 30s linear infinite;
 }
-
-/* 滚动关键帧 */
 @keyframes scrollUp {
     0%{transform: translateY(0);}
     100%{transform: translateY(-50%);}
@@ -185,14 +238,14 @@ footer {
     100%{transform: translateY(0);}
 }
 
-/* 移动端隐藏两侧滚动卡片 */
+/* 移动端适配 */
 @media (max-width:768px) {
     .scroll-box{
         display: none;
     }
 }
 
-/* 食在理工板块 - 标题图片背景层 */
+/* 食在理工标题背景样式 */
 #food .section-content .food-title-img {
     width: 100%;                    
     background-image: url("../../image/food1.png");
