@@ -266,62 +266,6 @@ body .food-side-card:hover .food-hover-card {
     margin-bottom: 0.5rem;         
 }
 
-<<<<<<< HEAD
-/* ========== 游在理工板块样式 ========== */
-.fullscreen-section.sight {
-    min-height: 100vh;
-    position: relative;
-    background: url('../../image/play15.png') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-
-}
-
-.diamond-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    
-    width: 300px;
-    height: 300px;
-    background-color: rgba(255, 255, 255, 0.272);
-    border: 2px solid #49bcff; 
-    z-index: 998; 
- }
-
- .diamond-content {
-     width: 100%;
-     height: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     transform: rotate(-45deg); 
- }
-
-.sight-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    font-family: "华文行楷";
-    font-size: 100px;
-    font-weight: bold;
-
-    color: #48e110;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-
-    z-index: 999;
-}
-
-.sight-btn:hover {
-    color: #0958d9;
-}
-=======
-
 /*=======学在理工板块=======*/
 .study-circle-box {
             position: relative;
@@ -452,4 +396,186 @@ body .food-side-card:hover .food-hover-card {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
->>>>>>> 4e8481cf1e3898e2726be1109fbe2b43588f19d6
+/* ========== 游在理工板块样式 ========== */
+.fullscreen-section.sight {
+    min-height: 100vh;
+    position: relative;
+    background: url('../../image/play15.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.diamond-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.272);
+    border: 2px solid #49bcff; 
+    z-index: 998; 
+ }
+
+ .diamond-content {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transform: rotate(-45deg); 
+ }
+
+.sight-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: "华文行楷";
+    font-size: 100px;
+    font-weight: bold;
+
+    color: #48e110;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    z-index: 999;
+}
+
+.sight-btn:hover {
+    color: #0958d9;
+}
+
+/*=======学在理工板块=======*/
+.study-circle-box {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            margin-top: 30px;
+            overflow: visible !important;
+}
+.circle-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    z-index: 10;
+}
+.circle-line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    height: 520px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.image-item {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image-item:hover {
+    border-color: #6fc8ff;
+    box-shadow: 0 0 35px rgba(110,200,255,0.8);
+    transform: scale(1.05);
+}
+.info-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 440px;
+    height: 360px;
+    padding: 30px 25px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.45);
+    opacity: 0;
+    transition: all 0.6s ease;
+    text-align: center;
+    z-index: 15;
+    box-shadow: 0 0 30px rgba(0,140,255,0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+.info-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    border-radius: 22px;
+    z-index: -1;
+}
+.info-box.show { opacity: 1; }
+.info-box h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #6fc8ff;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+.info-box p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.8;
+    text-align: justify;
+    text-indent: 2em;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+}
+#study { position: relative; overflow: visible !important; }
+#study::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("./image/南湖风景.png") center/cover no-repeat !important;
+    z-index: 1;
+    opacity: 0.95;
+}
+#study .section-content {
+    position: relative;
+    z-index: 2;
+    overflow: visible !important;
+}
+
+#study .section-content .study-title-img{
+    width: 100%;                    
+    background-image: url("../../image/科研实训.png");
+    background-size: cover;         
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;           
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
