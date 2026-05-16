@@ -209,3 +209,57 @@ footer {
 #food .section-content .feature-title {
     margin-bottom: 0.5rem;         
 }
+
+/* ========== 游在理工板块样式 ========== */
+.fullscreen-section.sight {
+    min-height: 100vh;
+    position: relative;
+    background: url('../../image/play15.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.diamond-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.272);
+    border: 2px solid #49bcff; 
+    z-index: 998; 
+ }
+
+ .diamond-content {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transform: rotate(-45deg); 
+ }
+
+.sight-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: "华文行楷";
+    font-size: 100px;
+    font-weight: bold;
+
+    color: #48e110;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    z-index: 999;
+}
+
+.sight-btn:hover {
+    color: #0958d9;
+}
