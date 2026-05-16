@@ -14,7 +14,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         if (targetElement) {
             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - navHeight;
+            const offsetPosition = elementPosition;
             
             window.scrollTo({
                 top: offsetPosition,
