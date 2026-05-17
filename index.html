@@ -284,12 +284,21 @@
 
     <!-- 游在理工 -->
     <section class="fullscreen-section sight" id="sight">
-        <div class="section-content">
-            <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
-            <h3 class="feature-title">游在理工</h3>
-            <p class="feature-desc">漫步南湖畔、参观飞马广场、打卡特色建筑，感受理工大的校园美景。</p>
+        <div class="diamond-card">
+            <div class="diamond-content">
+                <button class="sight-btn" onclick="showSightContent()">游在理工</button>
+            </div>
         </div>
     </section>
+    <!-- 👇 新增：隐藏的景色详情内容区域 -->
+    <section id="sight-detail" style="display: none; min-height: 100vh; background: #fff; padding: 50px;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2>校园景点详情</h2>
+            <p style="margin-top: 20px;">这里写你要展示的景点内容，比如飞马广场、南湖风景、特色建筑等。</p>
+            <!-- 返回按钮，点击回到游在理工板块 -->
+            <button onclick="backToSight()" style="margin-top: 30px; padding: 10px 20px;">返回主页</button>
+    </div>
+</section>
 
     <footer>
         <p class="footer-text">© 2026 武汉理工大学 校园导航测试页面 | 数据来源：武汉理工大学官网</p>
@@ -297,6 +306,7 @@
 
     <script src="src/js/script.js"></script>
     <script src="src/js/sakura.js"></script>
+    <script src="src/js/play.js"></script>
     <script src="src/js/study.js"></script>
 
     <script>
