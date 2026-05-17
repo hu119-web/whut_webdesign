@@ -35,7 +35,7 @@
 
 /* 首页副标题 */
 .hero-subtitle {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     text-align: center;
@@ -118,6 +118,25 @@ footer {
     position: relative;
     z-index: 1;
     overflow: hidden; 
+}
+.food-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-size: 2.5em;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight:bold;
+}
+
+.food-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 /* 侧边竖向无限滚动容器 - 关键修复：限制溢出 */

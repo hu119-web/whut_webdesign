@@ -51,7 +51,6 @@ body {
 
 .enter-text{
     position: absolute;
-
     top:25%;
     left:25%;
     transform: translate(-50%,-50%);

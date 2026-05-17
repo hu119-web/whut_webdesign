@@ -50,7 +50,7 @@
     <section class="fullscreen-section food" id="food">
         <div class="section-content">
             <div class="food-title-img">
-                <h3 class="feature-title">食在理工</h3>
+                <button class="food-btn" onclick="showFoodContent()">食在理工</button>
                 <p class="feature-desc">舌尖上的WUT 品味校园烟火气</p>
             </div>
         <!-- 左右竖向无限滚动容器 -->
@@ -264,6 +264,15 @@
         </div>
         </div>
     </section>
+    <!-- 新增：隐藏的食在理工详情内容区域 -->
+    <section id="food-detail" style="display: none; min-height: 100vh; background: #ffffff; padding: 50px; position:relative; z-index:9999;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+             <h2>校园美食详情</h2>
+             <p style="margin-top: 20px;">这里写你要展示的食堂、美食介绍，比如越苑食堂、智苑麻辣烫、特色菜品等内容。</p>
+        <!-- 返回按钮，点击回到食在理工主板块 -->
+        <button onclick="backToFood()" style="margin-top: 30px; padding: 10px 20px;">返回主页</button>
+    </div>
+</section>
  <!-- 学在理工 -->
  <section class="fullscreen-section study" id="study">
     <div class="section-content">
@@ -308,6 +317,7 @@
     <script src="src/js/sakura.js"></script>
     <script src="src/js/play.js"></script>
     <script src="src/js/study.js"></script>
+    <script src="src/js/food.js"></script>
 
     <script>
         function toggleMusic(){const music=document.getElementById('bgMusic');music.paused?music.play():music.pause();}
