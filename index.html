@@ -35,7 +35,7 @@
             <li><a href="#food"><i class="fas fa-utensils"></i> 食在理工</a></li>
             <li><a href="#study"><i class="fas fa-book-open"></i> 学在理工</a></li>
             <li><a href="#sight"><i class="fas fa-map-marked-alt"></i> 游在理工</a></li>
-            <li><a href="javascript:void(0);" class="music-btn" onclick="toggleMusic()"><i class="fas fa-music"></i> 背景音乐</a></li>
+            <li><a href="javascript:void(0);" class="music-btn" onclick="MusicManager.toggle()"><i class="fas fa-music"></i> 背景音乐</a></li>
         </ul>
     </nav>
 
@@ -46,7 +46,7 @@
 
             <h2 class="hero-subtitle">厚德博学 · 追求卓越</h2>
             -->
-            <div class="scroll-hint">↓ 探索校园 ↓</div>
+            <div class="scroll-hint"><a href="#intro">↓ 探索校园 ↓</a></div>
         </div>
     </section>
     <!-- 学校介绍板块（修改后） -->
@@ -59,13 +59,20 @@
                     <img src="image/南湖图书馆.png" alt="南湖图书馆">
                 </div>
                 <div class="slider-item">
-                    <img src="image/play1.png" alt="校园风景1">
+                    <img src="image/play1.png" alt="南湖体育馆">
                 </div>
                 <div class="slider-item">
                     <img src="image/飞马2.png" alt="飞马广场">
                 </div>
+                <div class="slider-item">
+                    <img src="image/newmain.png" alt="博学主楼">
+                </div>
+                <div class="slider-item">
+                    <img src="image/余区大门.jpg" alt="余区大门">
+                </div>
                 <button class="prev">←</button>
                 <button class="next">→</button>
+                <div class="slider-dots"></div>
             </div>
         </div>
 
@@ -84,6 +91,7 @@
             </p>
         </div>
     </div>
+    
 </section>
 
     <!-- 食在理工 -->
@@ -352,16 +360,13 @@
     <footer>
         <p class="footer-text">© 2026 武汉理工大学 校园导航测试页面 | 数据来源：武汉理工大学官网</p>
     </footer>
-
+    <script src="src/js/music.js"></script>
     <script src="src/js/script.js"></script>
     <script src="src/js/sakura.js"></script>
     <script src="src/js/play.js"></script>
     <script src="src/js/study.js"></script>
     <script src="src/js/food.js"></script>
-
-    <script>
-        function toggleMusic(){const music=document.getElementById('bgMusic');music.paused?music.play():music.pause();}
-    </script>
+    
 
 </body>
 </html>

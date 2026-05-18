@@ -45,17 +45,18 @@
 }
 
 /* 滚动提示箭头 */
-.scroll-hint {
+.scroll-hint a{
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
     color: white;
-    font-size: 1.5rem;
+    font-size: 3rem;
     cursor: pointer;
     text-shadow: 1px 1px 2px black;
     z-index: 2;
+    text-decoration: none;
 }
 @keyframes bounce {
     0%,20%,50%,80%,100% { transform: translateY(0) translateX(-50%); }
@@ -154,14 +155,78 @@ footer {
     margin-bottom: 16px;
 }
 
-/* 确保原轮播图自适应新容器 */
+/* 轮播图基础样式 */
 .intro-slider .slider {
+    position: relative;
     width: 100%;
-    max-width: 100%;
-    margin: 0;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4/3;
     border-radius: 16px;
     overflow: hidden;
+}
+
+.slider-item {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-item.active {
+    display: block;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 左右箭头样式 */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* 小圆点样式 */
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dot.active {
+    background: #fff;
+    transform: scale(1.2);
 }
 
 /* 响应式：移动端堆叠 */
