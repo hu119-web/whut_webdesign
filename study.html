@@ -176,99 +176,87 @@
             box-shadow: 0 0 10px #6fc8ff;
         }
 
-        /* 第二部分：环形研学展示 */
+        /* 第二屏 勤学日常 · 理工百态 */
         .section2 {
             width: 100%;
             height: 100vh;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 60px;
         }
-
-        .vertical-title {
-            position: absolute;
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-            font-size: 52px;
+        .section-title {
+            font-size: 42px;
             font-weight: 700;
-            letter-spacing: 12px;
-            color: #ffffff;
-            text-shadow: 0 0 20px rgba(110, 200, 255, 0.8);
-            z-index: 999;
+            text-shadow: 0 0 25px rgba(110, 200, 255, 0.8);
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #fff;
         }
-
         .circle-box {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             width: 720px;
             height: 720px;
             z-index: 100;
         }
-
         .circle-line {
             position: absolute;
             width: 540px;
             height: 540px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255,255,255,0.3);
             border-radius: 50%;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%,-50%);
             pointer-events: none;
             z-index: 1;
         }
-
         .image-item {
             position: absolute;
             width: 130px;
             height: 130px;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.6);
+            border: 3px solid rgba(255,255,255,0.6);
             cursor: pointer;
             z-index: 200;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: all 0.7s cubic-bezier(0.165,0.84,0.44,1);
         }
-
         .image-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .image-item:hover {
             border-color: #6fc8ff;
-            box-shadow: 0 0 35px rgba(110, 200, 255, 0.8);
+            box-shadow: 0 0 35px rgba(110,200,255,0.8);
             scale: 1.05;
         }
-
         .info-box {
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%,-50%);
             width: 460px;
             padding: 45px 35px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.8);
             border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255,255,255,0.5);
             opacity: 0;
             transition: all 0.7s ease;
             text-align: center;
             z-index: 150;
-            box-shadow: 0 0 40px rgba(0, 140, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0,140,255,0.4);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
-
         .info-box.show {
             opacity: 1;
         }
-
         .info-box h3 {
             font-size: 26px;
             margin-bottom: 20px;
@@ -276,10 +264,9 @@
             font-weight: 600;
             letter-spacing: 2px;
         }
-
         .info-box p {
             font-size: 17px;
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(255,255,255,0.95);
             line-height: 1.9;
             text-align: justify;
             text-indent: 2em;
@@ -294,7 +281,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         .research-title {
             font-size: 42px;
             font-weight: 700;
@@ -303,7 +289,6 @@
             margin-bottom: 50px;
             text-align: center;
         }
-
         .research-content {
             width: 900px;
             background: rgba(0, 0, 0, 0.5);
@@ -313,7 +298,6 @@
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
         }
-
         .research-content p {
             font-size: 17px;
             line-height: 2.0;
@@ -321,14 +305,12 @@
             margin-bottom: 20px;
             text-align: justify;
         }
-
         .research-highlight {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
             gap: 20px;
         }
-
         .research-card {
             flex: 1;
             background: rgba(110, 200, 255, 0.15);
@@ -336,85 +318,55 @@
             padding: 20px;
             border: 1px solid rgba(110, 200, 255, 0.4);
         }
-
         .research-card h4 {
             font-size: 20px;
             color: #6fc8ff;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
-
         .research-card p {
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 0;
         }
+
+        /* 第四屏：资源共享平台 */
+        .section4 {
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content-card {
+            width: 900px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        .platform-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
     </style>
-    <style>
-/* 第四屏样式（和前三屏完全统一） */
-.section4 {
-    width: 100%;
-    min-height: 100vh;
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: url("image/南湖风景.png") no-repeat center center fixed;
-    background-size: cover;
-    background-color: rgba(0, 0, 0, 0.6);
-    background-blend-mode: multiply;
-}
-
-.section-title {
-    font-size: 42px;
-    font-weight: 700;
-    text-shadow: 0 0 25px rgba(110, 200, 255, 0.8);
-    letter-spacing: 3px;
-    margin-bottom: 50px;
-    text-align: center;
-    color: #ffffff;
-}
-
-.content-card {
-    width: 900px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    padding: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-}
-
-.platform-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.content-card p {
-    font-size: 17px;
-    line-height: 2.0;
-    color: rgba(255, 255, 255, 0.95);
-    margin-bottom: 20px;
-    text-align: justify;
-}
-</style>
 </head>
 <body>
-    <!-- 在 study.html 的 body 中添加 -->
-    <audio id="bgMusic" src="audio/卡农（新）.MP3" loop></audio>
-    <!-- 页面顶部返回导航 -->
-    <a href="index.html#study" class="back">← 返回首页</a>
 
+<audio id="bgMusic" src="audio/卡农（新）.MP3" loop></audio>
 <a href="index.html#study" class="back">← 返回首页</a>
 
-<!-- 第一屏：学科竞赛轮播 -->
+<!-- 1 学科竞赛轮播 -->
 <div class="section1">
-    <h1 class="page-title">学科竞赛优势</h1>
-    <div class="slider-container" id="slider">
+    <h1 class="page-title">学科竞赛优势 · 学在理工</h1>
+    <div class="slider-container">
         <div class="slider-item active">
             <img src="image/全国大学生金相技能大赛(国赛).png">
             <div class="text">武汉理工大学材料学科为双一流王牌，在全国大学生金相技能大赛中多次斩获一等奖，并承办全国总决赛，专业实力全国顶尖。</div>
@@ -443,31 +395,29 @@
             <img src="image/“大唐杯” 信息通信大赛（国一）.png">
             <div class="text">计算机、信息类学子在大唐杯、蓝桥杯、ACM等赛事屡获国奖，代码与项目能力极强，深受互联网大厂认可。</div>
         </div>
-
         <button class="slider-btn prev">←</button>
         <button class="slider-btn next">→</button>
         <div class="dots"></div>
     </div>
 </div>
 
-<!-- 第二屏：环形研学展示 -->
+<!-- 2 环形展示 -->
 <div class="section2">
-    <h2 class="section-title">勤学日常・理工百态</h2>
+    <h2 class="section-title">勤学日常 · 理工百态</h2>
     <div class="circle-box" id="box">
         <div class="circle-line"></div>
         <div class="info-box" id="info"></div>
     </div>
 </div>
 
-<!-- 第三屏：科研介绍（新增） -->
+<!-- 3 科研实力 -->
 <div class="section3">
     <h2 class="research-title">科研实力 · 硬核理工</h2>
     <div class="research-content">
         <p>武汉理工大学作为国家“双一流”“211工程”重点建设高校，科研实力稳居全国高校第一梯队，形成<strong>材料强、交通优、汽车特</strong>的鲜明工科特色，深度服务制造强国、交通强国、汽车强国等国家战略。</p>
         <p>学校建有<strong>56个国家级和省部级科研基地</strong>，包括材料复合新技术、硅酸盐科学与先进建材、水路交通控制等全国重点实验室，以及光纤传感技术、国家水运安全工程技术研究中心等国家级平台，科研硬件条件全国领先。同时拥有12个国家级国际科技合作基地，与全球顶尖高校和科研机构开展深度合作。</p>
-        <p>科研成果硕果累累，近五年获<strong>国家科学技术奖6项</strong>（含自然科学奖、技术发明奖、科技进步奖），2023年度斩获5项、其中3项为第一完成单位，位居全国高校前列。作为第一单位在<strong>Science发表2篇、Nature发表6篇</strong>顶级论文，授权发明专利超5800项，获中国专利奖7项，科研创新能力与成果转化效率双高。</p>
-        <p>科研领域覆盖新材料研发、智能交通、新能源汽车、船舶海洋工程、绿色低碳等前沿方向，从福建舰、港珠澳大桥，到C919大飞机、国产大型邮轮，处处都有武理工科研成果的身影，彰显“与国家发展同频共振”的理工担当。本科生可提前进入国家级实验室，参与重大科研项目、发表论文、申请专利，实现“本科即科研”的培养特色。</p>
-
+        <p>科研成果硕果累累，近五年获<strong>国家科学技术奖6项</strong>，2023年度斩获5项、其中3项为第一完成单位，位居全国高校前列。作为第一单位在<strong>Science发表2篇、Nature发表6篇</strong>顶级论文，授权发明专利超5800项，获中国专利奖7项，科研创新能力与成果转化效率双高。</p>
+        <p>科研领域覆盖新材料研发、智能交通、新能源汽车、船舶海洋工程、绿色低碳等前沿方向，从福建舰、港珠澳大桥，到C919大飞机、国产大型邮轮，处处都有武理工科研成果的身影，彰显“与国家发展同频共振”的理工担当。</p>
         <div class="research-highlight">
             <div class="research-card">
                 <h4>顶尖平台</h4>
@@ -485,21 +435,19 @@
     </div>
 </div>
 
-<!-- 第四屏：资源共享平台介绍 -->
+<!-- 4 资源共享 -->
 <div class="section4">
     <h2 class="section-title">薪火相传 · 共享互助</h2>
     <div class="content-card">
-        <img src="image/毫厘网站.png" class="platform-img" alt="武理资源共享平台">
-        <p>这是由武理工学长们自发搭建的「毫厘资源共享平台」，是理工校园中薪火相传、互助共进的真实写照。平台集聚了历届学长学姐无私上传的海量学习资料，涵盖高数、线代、概率论等公共基础课，以及专业核心课笔记、实验报告模板、期中期末真题、竞赛备赛资料、保研考研经验等全品类优质资源，为同学们的学习之路提供了极大便利。</p>
+        <img src="image/毫厘网站.png" class="platform-img">
+        <p>这是由武理工学长们自发搭建的「毫厘资源共享平台」，是理工校园中薪火相传、互助共进的真实写照。平台集聚了历届学长学姐无私上传的海量学习资料，涵盖高数、线代、概率论等公共基础课，以及专业核心课笔记、实验报告模板、期中期末真题、竞赛备赛资料、保研考研经验等全品类优质资源。</p>
         <p>学长们不仅毫无保留地分享整理好的资料，更主动分享高效学习方法、备考避坑指南、专业选择建议和成长心得，用亲身经历为学弟学妹指引方向、答疑解惑。没有门槛、没有保留，每一份文件、每一条留言都藏着“前人栽树，后人乘凉”的真诚与热忱。</p>
         <p>这种无私奉献、守望相助的精神，正是“学在理工”最温暖、最动人的内涵——它不只是个人的勤学奋进，更是代代相传的互助与成长。在这方小小的平台里，知识得以传递，温暖得以延续，优良学风得以传承，让每一位理工学子都能在求学路上少走弯路、收获力量。</p>
     </div>
 </div>
 
-
-
 <script>
-// 轮播功能
+// 轮播
 const items = document.querySelectorAll('.slider-item');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
@@ -511,7 +459,7 @@ function createDots() {
     items.forEach((_, i) => {
         const d = document.createElement('div');
         d.className = i === 0 ? 'dot active' : 'dot';
-        d.onclick = () => { go(i) };
+        d.onclick = () => go(i);
         dots.appendChild(d);
     })
 }
@@ -522,9 +470,7 @@ function update() {
 }
 
 function go(n) {
-    index = n;
-    if (index >= items.length) index = 0;
-    if (index < 0) index = items.length - 1;
+    index = (n + items.length) % items.length;
     update();
 }
 
@@ -537,7 +483,7 @@ next.onclick = () => { clearInterval(timer); go(++index); auto(); }
 createDots();
 auto();
 
-// 环形展示功能
+// 环形展示
 const campusData = [
     {
         img: "image/南湖图书馆.png",
@@ -552,12 +498,12 @@ const campusData = [
     {
         img: "image/科研实训.png",
         title: "科创实训・实验室研学",
-        text: "作为工科强校，武汉理工大学为学子搭建了覆盖材料、交通、机械、计算机等优势学科的高标准实验室与科创平台。学子们走出课本，走进实验室，亲手操作精密仪器、开展实验验证、攻克技术难题，将课堂上学到的理论知识转化为可落地的实践能力。从基础课程实验到国家级科创项目，从材料性能测试到智能系统开发，实验室里的每一次尝试、每一次突破，都在锤炼学子的工科实干素养与创新思维，为未来投身行业前沿打下坚实基础。"
+        text: "作为工科强校，武汉理工大学为学子搭建了覆盖材料、交通、机械、计算机等优势学科的高标准实验室与科创平台。学子们走出课本，走进实验室，亲手操作精密仪器、开展实验验证、攻克技术难题，将课堂上学到的理论知识转化为可落地的实践能力。"
     },
     {
         img: "image/学海争锋.png",
         title: "学海争锋・竞赛研学",
-        text: "校园内各类学科竞赛与专业比拼氛围浓厚，学校大力支持学子组队参与数学建模、电子设计、机械创新、智能车等各类赛事。学子们组建团队，利用课余时间研讨知识点、打磨方案、反复测试，在备赛过程中查漏补缺、互帮互助。从校内选拔赛的初露锋芒，到省级、国家级赛场的并肩作战，每一次竞赛都是一次对学识、抗压能力与团队协作的全方位锻炼，不仅拓宽了学子的学术视野，更让他们在竞争中突破自我，收获成长。"
+        text: "校园内各类学科竞赛与专业比拼氛围浓厚，学校大力支持学子组队参与数学建模、电子设计、机械创新、智能车等各类赛事。学子们组建团队，利用课余时间研讨知识点、打磨方案、反复测试，在备赛过程中查漏补缺、互帮互助。作为工科强校，武汉理工大学为学子搭建了覆盖材料、交通、机械、计算机等优势学科的高标准实验室与科创平台。学子们走出课本，走进实验室，亲手操作精密仪器、开展实验验证、攻克技术难题，将课堂上学到的理论知识转化为可落地的实践能力。从基础课程实验到国家级科创项目，从材料性能测试到智能系统开发，实验室里的每一次尝试、每一次突破，都在锤炼学子的工科实干素养与创新思维，为未来投身行业前沿打下坚实基础。"
     },
     {
         img: "image/知行致远.png",
@@ -583,20 +529,28 @@ campusData.forEach((item, index) => {
 
     const imgDom = document.createElement('div');
     imgDom.className = 'image-item';
-    imgDom.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
+    imgDom.innerHTML = `<img src="${item.img}">`;
     imgDom.style.left = `${posX - 65}px`;
     imgDom.style.top = `${posY - 65}px`;
 
-    imgDom.addEventListener('mouseenter', function () {
+    imgDom.addEventListener('mouseenter', () => {
         document.querySelectorAll('.image-item').forEach((dom, idx) => {
             const a = (idx / 6) * Math.PI * 2 - Math.PI / 2;
-            const offsetX = moveDistance * Math.cos(a);
-            const offsetY = moveDistance * Math.sin(a);
-            dom.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            const ox = moveDistance * Math.cos(a);
+            const oy = moveDistance * Math.sin(a);
+            dom.style.transform = `translate(${ox}px, ${oy}px)`;
         });
+        infoShowBox.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
+        infoShowBox.classList.add('show');
     });
+
+    imgDom.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.image-item').forEach(d => d.style.transform = '');
+        infoShowBox.classList.remove('show');
+    });
+
+    mainBox.appendChild(imgDom);
 });
 </script>
-    <script src="src/js/music.js"></script>
 </body>
 </html>
