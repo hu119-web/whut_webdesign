@@ -49,6 +49,7 @@ function toggleMusic() {
 // 可选：页面加载时自动播放音乐（需用户交互，建议注释掉，保持原样）
 // 如果希望一进入就播放，需在body上添加一个点击或滚动监听
 
+<<<<<<< HEAD
 // 夜间模式功能
 (function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
@@ -87,3 +88,49 @@ function toggleMusic() {
         }
     });
 })();
+=======
+ const items = document.querySelectorAll('.slider-item');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    let index = 0; // 当前显示第几张
+    const len = items.length; // 总图片数
+
+    // 切换图片函数
+    function showImg(n) {
+      // 隐藏所有图片
+      items.forEach(item => item.classList.remove('active'));
+      // 显示指定图片
+      items[n].classList.add('active');
+    }
+
+    // 下一张
+    function next() {
+      index++;
+      if (index >= len) index = 0; // 循环
+      showImg(index);
+    }
+
+    // 上一张
+    function prev() {
+      index--;
+      if (index < 0) index = len - 1; // 循环
+      showImg(index);
+    }
+
+    // 自动播放（3秒切换一次）
+    let timer = setInterval(next, 3000);
+
+    // 点击按钮
+    nextBtn.onclick = () => {
+      clearInterval(timer); // 暂停自动
+      next();
+      timer = setInterval(next, 3000); // 重启
+    };
+
+    prevBtn.onclick = () => {
+      clearInterval(timer);
+      prev();
+      timer = setInterval(next, 3000);
+    };
+>>>>>>> 47cf120a95dd7c7952ee0f4132cf7a5bef65f77a

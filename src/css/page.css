@@ -97,6 +97,86 @@ footer {
     li a { padding: 5px 8px; font-size: 0.75rem; }
 }
 
+/* ========== 学校简介板块（新布局） ========== */
+#intro {
+    background: rgba(0, 0, 0, 0.4); /* 半透明黑色背景，可调透明度 */
+    backdrop-filter: blur(2px);    /* 可选：背景模糊效果 */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.85); /* 卡片半透明白色背景 */
+    border-radius: 24px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 30px;
+    gap: 30px;
+}
+
+/* 左：轮播图区域 */
+.intro-slider {
+    flex: 1.2;
+    min-width: 280px;
+}
+
+/* 右：文字区域 */
+.intro-text {
+    flex: 0.8;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.intro-title {
+    font-size: 2.2rem;
+    color: #003366;
+    margin-bottom: 20px;
+    border-left: 5px solid #c0392b;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.intro-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    text-align: justify;
+    margin-bottom: 16px;
+}
+
+/* 确保原轮播图自适应新容器 */
+.intro-slider .slider {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* 响应式：移动端堆叠 */
+@media (max-width: 768px) {
+    .intro-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .intro-title {
+        font-size: 1.8rem;
+    }
+}
+
+
+
 /* ========== 食在理工板块样式 ========== */
 #food {
   background-image: url("../../image/food11.png");
