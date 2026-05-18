@@ -24,17 +24,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ========== 滚动提示箭头：点击滚动到第一个全屏板块（食在理工） ==========
-const scrollHint = document.querySelector('.scroll-hint');
-if (scrollHint) {
-    scrollHint.addEventListener('click', function() {
-        const foodSection = document.getElementById('food-section');
-        if (foodSection) {
-            const offsetPosition = foodSection.getBoundingClientRect().top + window.scrollY - navHeight;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
-    });
-}
 
 
 // 替换原来的 toggleMusic 函数
