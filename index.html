@@ -27,7 +27,6 @@
         <div class="school-abbr">武汉理工大学</div>
     </div>
 
-    <!-- ✅ 正确导航栏：只在本页面滚动！！！ -->
     <nav class="nav-fixed" id="nav">
         <ul>
             <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
@@ -39,48 +38,36 @@
         </ul>
     </nav>
 
-    <!-- 首页 -->
     <section class="fullscreen-section home" id="home">
         <div class="container">
-            <!--
-
-            <h2 class="hero-subtitle">厚德博学 · 追求卓越</h2>
-            -->
             <div class="scroll-hint">↓ 探索校园 ↓</div>
         </div>
     </section>
-    <!--学校介绍-->
+
     <section class="fullscreen-section intro" id="intro" >
         <div class="slider">
-             <!-- 图片1 -->
             <div class="slider-item active">
                 <img src="image/南湖图书馆.png" alt="图1">
             </div>
-            <!-- 图片2 -->
             <div class="slider-item">
                 <img src="image/play1.png" alt="图2">
             </div>
-            <!-- 图片3 -->
             <div class="slider-item">
                 <img src="image/飞马2.png" alt="图3">
             </div>
 
-            <!-- 切换按钮 -->
             <button class="prev">←</button>
             <button class="next">→</button>
         </div>
     </section>
 
-    <!-- 食在理工 -->
     <section class="fullscreen-section food" id="food">
         <div class="section-content">
             <div class="food-title-img">
                 <button class="food-btn" onclick="showFoodContent()">食在理工</button>
                 <p class="feature-desc">舌尖上的WUT 品味校园烟火气</p>
             </div>
-        <!-- 左右竖向无限滚动容器 -->
         <div class="scroll-food-wrap">
-            <!-- 左侧竖向滚动卡片 悬浮卡片效果 -->
             <div class="scroll-box left-scroll">
                 <div class="scroll-list">
                     <div class="food-side-card">
@@ -131,7 +118,6 @@
                             <p>奶香芝士搭配甜糯玉米，盐焗风味浓郁，香甜可口，休闲小食必备。</p>
                         </div>
                     </div>
-                    <!-- 复制一遍实现无缝无限滚动 -->
                    <div class="food-side-card">
                         <img src="image/food1.png" alt="一食堂">
                         <span>智苑麻辣烫</span>
@@ -183,7 +169,6 @@
                 </div>
             </div>
 
-            <!-- 右侧竖向滚动卡片 -->
             <div class="scroll-box right-scroll">
                 <div class="scroll-list">
                     <div class="food-side-card">
@@ -234,8 +219,6 @@
                             <p>皮薄馅大，汤汁鲜美，口感顺滑，暖心暖胃，校园经典小吃。</p>
                         </div>
                     </div>   
-                
-                    <!-- 复制一遍无缝滚动 -->
                    <div class="food-side-card">
                         <img src="image/food7.png" alt="特色美食">
                         <span>五谷杂粮饭</span>
@@ -289,16 +272,15 @@
         </div>
         </div>
     </section>
-    <!-- 新增：隐藏的食在理工详情内容区域 -->
+
     <section id="food-detail" style="display: none; min-height: 100vh; background: #ffffff; padding: 50px; position:relative; z-index:9999;">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
              <h2>校园美食详情</h2>
              <p style="margin-top: 20px;">这里写你要展示的食堂、美食介绍，比如越苑食堂、智苑麻辣烫、特色菜品等内容。</p>
-        <!-- 返回按钮，点击回到食在理工主板块 -->
         <button onclick="backToFood()" style="margin-top: 30px; padding: 10px 20px;">返回主页</button>
     </div>
 </section>
- <!-- 学在理工 -->
+
  <section class="fullscreen-section study" id="study">
     <div class="section-content">
         <div class="study-title-img">
@@ -316,7 +298,6 @@
     </div>
 </section>
 
-    <!-- 游在理工 -->
     <section class="fullscreen-section sight" id="sight">
         <div class="diamond-card">
             <div class="diamond-content">
@@ -324,12 +305,11 @@
             </div>
         </div>
     </section>
-    <!-- 👇 新增：隐藏的景色详情内容区域 -->
+
     <section id="sight-detail" style="display: none; min-height: 100vh; background: #fff; padding: 50px;">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <h2>校园景点详情</h2>
             <p style="margin-top: 20px;">这里写你要展示的景点内容，比如飞马广场、南湖风景、特色建筑等。</p>
-            <!-- 返回按钮，点击回到游在理工板块 -->
             <button onclick="backToSight()" style="margin-top: 30px; padding: 10px 20px;">返回主页</button>
     </div>
 </section>

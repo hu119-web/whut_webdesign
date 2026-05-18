@@ -2,45 +2,34 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 适配移动端与桌面端，禁止缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- 网页关键字与描述，完善网页信息 -->
     <meta name="keywords" content="武汉理工,南湖校园,研学展示,校园风采">
-    <meta name="description" content="学在理工校园风采全景环形展示页面">
-    <!-- 网页标题 -->
-    <title>学在理工 - 全景研学展示</title>
+    <meta name="description" content="学在理工校园风采全景展示页面">
+    <title>学在理工</title>
     <style>
-        /* 全局样式重置 完善基础布局 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 根页面全局样式 */
         html, body {
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            /* 全屏校园背景图 */
+            width: 100%;
+            height: auto;
+            overflow-x: hidden;
             background: url("image/南湖风景.png") no-repeat center center fixed;
             background-size: cover;
-            /* 深色蒙版提升文字对比度 */
             background-color: rgba(0, 0, 0, 0.6);
             background-blend-mode: multiply;
-            /* 统一全局字体 */
             font-family: "Microsoft YaHei", "SimHei", sans-serif;
             color: #ffffff;
-            /* 禁止页面选中文字 */
             user-select: none;
         }
 
-        /* 通用过渡动画统一规范 */
         a, div, img {
             transition: all 0.3s ease;
         }
 
-        /* 顶部返回导航按钮 完善hover交互 */
         .back {
             position: fixed;
             top: 25px;
@@ -57,6 +46,7 @@
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
         }
+
         .back:hover {
             background: rgba(110, 200, 255, 0.3);
             border-color: #6fc8ff;
@@ -64,9 +54,137 @@
             box-shadow: 0 5px 15px rgba(110, 200, 255, 0.2);
         }
 
-        /* 左侧竖排主题标题 优化字体与光影 */
+        /* 第一部分：学科竞赛轮播 */
+        .section1 {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 100px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            text-shadow: 0 0 25px rgba(110, 200, 255, 0.8);
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+
+        .slider-container {
+            width: 900px;
+            height: 500px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .slider-item.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .slider-item img {
+            width: 85%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .slider-item .text {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: center;
+            width: 85%;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: #6fc8ff;
+            color: #000;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #6fc8ff;
+            box-shadow: 0 0 10px #6fc8ff;
+        }
+
+        /* 第二部分：环形研学展示 */
+        .section2 {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
         .vertical-title {
-            position: fixed;
+            position: absolute;
             left: 50px;
             top: 50%;
             transform: translateY(-50%);
@@ -80,7 +198,6 @@
             z-index: 999;
         }
 
-        /* 环形布局外层容器 居中定位规范化 */
         .circle-box {
             position: absolute;
             left: 50%;
@@ -91,7 +208,6 @@
             z-index: 100;
         }
 
-        /* 中心装饰环形线条 纯视觉装饰 */
         .circle-line {
             position: absolute;
             width: 540px;
@@ -105,7 +221,6 @@
             z-index: 1;
         }
 
-        /* 环形圆形图片容器 完善圆角溢出与阴影 */
         .image-item {
             position: absolute;
             width: 130px;
@@ -118,20 +233,19 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        /* 图片内部自适应填充 */
+
         .image-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        /* 图片悬浮高亮特效 */
+
         .image-item:hover {
             border-color: #6fc8ff;
             box-shadow: 0 0 35px rgba(110, 200, 255, 0.8);
             scale: 1.05;
         }
 
-        /* 中央文字介绍弹窗 玻璃态完善 */
         .info-box {
             position: absolute;
             left: 50%;
@@ -150,11 +264,11 @@
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
-        /* 弹窗显示状态 */
+
         .info-box.show {
             opacity: 1;
         }
-        /* 弹窗标题样式 */
+
         .info-box h3 {
             font-size: 26px;
             margin-bottom: 20px;
@@ -162,7 +276,7 @@
             font-weight: 600;
             letter-spacing: 2px;
         }
-        /* 弹窗正文文本样式 */
+
         .info-box p {
             font-size: 17px;
             color: rgba(255, 255, 255, 0.95);
@@ -170,116 +284,324 @@
             text-align: justify;
             text-indent: 2em;
         }
+
+        /* 第三部分：科研介绍 */
+        .section3 {
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .research-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-shadow: 0 0 25px rgba(110, 200, 255, 0.8);
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .research-content {
+            width: 900px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .research-content p {
+            font-size: 17px;
+            line-height: 2.0;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .research-highlight {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .research-card {
+            flex: 1;
+            background: rgba(110, 200, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(110, 200, 255, 0.4);
+        }
+
+        .research-card h4 {
+            font-size: 20px;
+            color: #6fc8ff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .research-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
-    <!-- 页面顶部返回导航 -->
-    <a href="index.html#study" class="back">← 返回首页</a>
 
-    <!-- 页面左侧竖排主题大字 -->
-    <div class="vertical-title">
-        学 在 理 工
+<a href="index.html#study" class="back">← 返回首页</a>
+
+<!-- 第一屏：学科竞赛轮播 -->
+<div class="section1">
+    <h1 class="page-title">学科竞赛优势 · 学在理工</h1>
+    <div class="slider-container" id="slider">
+        <div class="slider-item active">
+            <img src="image/全国大学生金相技能大赛(国赛).png">
+            <div class="text">武汉理工大学材料学科为双一流王牌，在全国大学生金相技能大赛中多次斩获一等奖，并承办全国总决赛，专业实力全国顶尖。</div>
+        </div>
+        <div class="slider-item">
+            <img src="image/“光威杯” 复合材料创新竞赛(国一).png">
+            <div class="text">材料学子在“光威杯”全国大学生科技创新竞赛中荣获全国一等奖，本科组总分第一，科研创新能力突出。</div>
+        </div>
+        <div class="slider-item">
+            <img src="image/校内材料创新竞赛（答辩现场）.png">
+            <div class="text">校内材料创新竞赛常态化开展，本科生可提前进入实验室、参与课题、发表论文、申请专利，竞赛与科研无缝衔接。</div>
+        </div>
+        <div class="slider-item">
+            <img src="image/全国大学生智能汽车竞赛（校赛）.png">
+            <div class="text">智能汽车竞赛为教育部A类赛事，武理工获奖数稳居全国前五，多学科交叉融合，校企资源丰富。</div>
+        </div>
+        <div class="slider-item">
+            <img src="image/智能车国赛开幕式（武理工承办）.png">
+            <div class="text">学校多次承办全国大学生智能汽车竞赛总决赛，产学研平台完善，就业直通东风、智能驾驶等优质企业。</div>
+        </div>
+        <div class="slider-item">
+            <img src="image/“挑战杯” 全国优胜杯.png">
+            <div class="text">武理工在“挑战杯”全国大学生课外学术科技作品竞赛中斩获全国优胜杯，科创氛围浓厚，导师资源充足。</div>
+        </div>
+        <div class="slider-item">
+            <img src="image/“大唐杯” 信息通信大赛（国一）.png">
+            <div class="text">计算机、信息类学子在大唐杯、蓝桥杯、ACM等赛事屡获国奖，代码与项目能力极强，深受互联网大厂认可。</div>
+        </div>
+
+        <button class="slider-btn prev">←</button>
+        <button class="slider-btn next">→</button>
+        <div class="dots"></div>
     </div>
+</div>
 
-    <!-- 环形展示主容器 -->
+<!-- 第二屏：环形研学展示 -->
+<div class="section2">
+    <div class="vertical-title">学 在 理 工</div>
     <div class="circle-box" id="box">
-        <!-- 中心装饰圆环 -->
         <div class="circle-line"></div>
-        <!-- 中心文字介绍展示容器 -->
         <div class="info-box" id="info"></div>
     </div>
+</div>
 
-    <script>
-        /**
-         * 校园研学展示数据源
-         * 存储所有图片路径、标题、介绍文案
-         * 结构清晰便于后期增删修改
-         */
-        const campusData = [
-            {
-                img: "image/南湖图书馆.png",
-                title: "书香馆藏・图书馆研学",
-                text: "武汉理工大学坐拥南湖、西院、余家头三大现代化图书馆，馆藏纸质文献超 400 万册、电子资源超百个数据库，阅览席位近万席。馆内配备 24 小时自习室、静音研读区、数字资源体验区，从清晨的第一缕阳光到深夜的台灯微光，这里永远有埋头苦读的身影。学子们在此刷题备考、研读专业典籍、查阅前沿文献，沉浸式的静谧环境与浓厚学习氛围，成为理工学子沉淀学识、追逐目标的 “知识港湾”。"
-            },
-            {
-                img: "image/师者传道.png",
-                title: "师者传道・课堂研学",
-                text: "课堂是理工学子汲取知识的核心阵地，学校汇聚了一批深耕学术的名师学者，他们以严谨的教风、生动的授课方式，将专业理论与行业前沿动态深度融合。无论是阶梯教室里的深入浅出讲解，还是小班研讨课上的师生互动交流，每一堂课都紧扣学科核心，夯实专业根基。在这里，学子们不仅收获了扎实的学识，更在老师的启发下培养了批判性思维与问题解决能力，为后续专业学习与科研探索筑牢基础。"
-            },
-            {
-                img: "image/科研实训.png",
-                title: "科创实训・实验室研学",
-                text: "作为工科强校，武汉理工大学为学子搭建了覆盖材料、交通、机械、计算机等优势学科的高标准实验室与科创平台。学子们走出课本，走进实验室，亲手操作精密仪器、开展实验验证、攻克技术难题，将课堂上学到的理论知识转化为可落地的实践能力。从基础课程实验到国家级科创项目，从材料性能测试到智能系统开发，实验室里的每一次尝试、每一次突破，都在锤炼学子的工科实干素养与创新思维，为未来投身行业前沿打下坚实基础。"
-            },
-            {
-                img: "image/学海争锋.png",
-                title: "学海争锋・竞赛研学",
-                text: "校园内各类学科竞赛与专业比拼氛围浓厚，学校大力支持学子组队参与数学建模、电子设计、机械创新、智能车等各类赛事。学子们组建团队，利用课余时间研讨知识点、打磨方案、反复测试，在备赛过程中查漏补缺、互帮互助。从校内选拔赛的初露锋芒，到省级、国家级赛场的并肩作战，每一次竞赛都是一次对学识、抗压能力与团队协作的全方位锻炼，不仅拓宽了学子的学术视野，更让他们在竞争中突破自我，收获成长。"
-            },
-            {
-                img: "image/知行致远.png",
-                title: "知行致远・户外研学交流",
-                text: "学习不止局限于教室与图书馆，校园的湖畔、林荫道、飞马广场旁，处处可见学子学习交流的身影。清晨的南湖畔，学子们迎着朝阳晨读背诵；午后的林荫道上，小组围坐讨论学业难题；周末的校园里，同学们结伴开展户外研学，梳理知识体系、交流学习心得。这种轻松自在的学习模式，既缓解了学业压力，又促进了同学间的互助互鉴，让知识在交流中沉淀，在实践中深化。"
-            },
-            {
-                img: "image/朝夕共进.png",
-                title: "朝夕共进・宿舍勤学氛围",
-                text: "浓厚的学风浸润校园的每一个角落，宿舍成为理工学子晚间学习的重要阵地。在这里，室友们互相督促打卡学习，分享课堂笔记与备考技巧，讨论难题解法、交流学习经验。一盏台灯下，几个人伏案刷题、互相讲解，营造出互帮互助、共同进步的勤学氛围。朝夕相伴的陪伴与鼓励，让学子们在学业路上不再孤单，携手攻克难点、稳步前行，用点滴努力奔赴各自的目标。"
-            }
-        ];
+<!-- 第三屏：科研介绍（新增） -->
+<div class="section3">
+    <h2 class="research-title">科研实力 · 硬核理工</h2>
+    <div class="research-content">
+        <p>武汉理工大学作为国家“双一流”“211工程”重点建设高校，科研实力稳居全国高校第一梯队，形成<strong>材料强、交通优、汽车特</strong>的鲜明工科特色，深度服务制造强国、交通强国、汽车强国等国家战略。</p>
+        <p>学校建有<strong>56个国家级和省部级科研基地</strong>，包括材料复合新技术、硅酸盐科学与先进建材、水路交通控制等全国重点实验室，以及光纤传感技术、国家水运安全工程技术研究中心等国家级平台，科研硬件条件全国领先。同时拥有12个国家级国际科技合作基地，与全球顶尖高校和科研机构开展深度合作。</p>
+        <p>科研成果硕果累累，近五年获<strong>国家科学技术奖6项</strong>（含自然科学奖、技术发明奖、科技进步奖），2023年度斩获5项、其中3项为第一完成单位，位居全国高校前列。作为第一单位在<strong>Science发表2篇、Nature发表6篇</strong>顶级论文，授权发明专利超5800项，获中国专利奖7项，科研创新能力与成果转化效率双高。</p>
+        <p>科研领域覆盖新材料研发、智能交通、新能源汽车、船舶海洋工程、绿色低碳等前沿方向，从福建舰、港珠澳大桥，到C919大飞机、国产大型邮轮，处处都有武理工科研成果的身影，彰显“与国家发展同频共振”的理工担当。本科生可提前进入国家级实验室，参与重大科研项目、发表论文、申请专利，实现“本科即科研”的培养特色。</p>
 
-        // 获取DOM元素节点
-        const mainBox = document.getElementById('box');
-        const infoShowBox = document.getElementById('info');
-        // 环形排布基础半径
-        const circleRadius = 250;
-        // 图片向外偏移距离
-        const moveDistance = 85;
+        <div class="research-highlight">
+            <div class="research-card">
+                <h4>顶尖平台</h4>
+                <p>56个国家级/省部级科研基地、10个国家级重点实验室/工程中心，硬件设施对标世界一流。</p>
+            </div>
+            <div class="research-card">
+                <h4>顶级成果</h4>
+                <p>Nature/Science论文8篇、国家科技奖6项、发明专利5800+项，创新实力全国顶尖。</p>
+            </div>
+            <div class="research-card">
+                <h4>国家担当</h4>
+                <p>深度参与大国工程，服务建材、交通、汽车三大行业，产学研融合紧密、成果转化率高。</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-        /**
-         * 动态生成环形排列图片
-         * 均分6个角度完成环形布局
-         */
-        campusData.forEach((item, index) => {
-            // 计算单个图片旋转角度
-            const angle = (index / 6) * Math.PI * 2 - Math.PI / 2;
-            // 计算图片初始定位坐标
-            const posX = 360 + circleRadius * Math.cos(angle);
-            const posY = 360 + circleRadius * Math.sin(angle);
+<script>
+// 轮播功能
+const items = document.querySelectorAll('.slider-item');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+const dots = document.querySelector('.dots');
+let index = 0;
+let timer;
 
-            // 创建图片DOM元素
-            const imgDom = document.createElement('div');
-            imgDom.className = 'image-item';
-            imgDom.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
-            // 定位图片位置
-            imgDom.style.left = `${posX - 65}px`;
-            imgDom.style.top = `${posY - 65}px`;
+function createDots() {
+    items.forEach((_, i) => {
+        const d = document.createElement('div');
+        d.className = i === 0 ? 'dot active' : 'dot';
+        d.onclick = () => { go(i) };
+        dots.appendChild(d);
+    })
+}
 
-            // 鼠标移入事件：图片扩散+展示介绍文案
-            imgDom.addEventListener('mouseenter', function() {
-                // 所有环形图片向外扩散
-                document.querySelectorAll('.image-item').forEach((dom, idx) => {
-                    const a = (idx / 6) * Math.PI * 2 - Math.PI / 2;
-                    const offsetX = moveDistance * Math.cos(a);
-                    const offsetY = moveDistance * Math.sin(a);
-                    dom.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-                });
-                // 赋值文案并显示弹窗
-                infoShowBox.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
-                infoShowBox.classList.add('show');
-            });
+function update() {
+    items.forEach((it, i) => it.classList.toggle('active', i === index));
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === index));
+}
 
-            // 鼠标移出事件：图片回归原位+隐藏文案
-            imgDom.addEventListener('mouseleave', function() {
-                document.querySelectorAll('.image-item').forEach(dom => {
-                    dom.style.transform = 'translate(0, 0)';
-                });
-                infoShowBox.classList.remove('show');
-            });
+function go(n) {
+    index = n;
+    if (index >= items.length) index = 0;
+    if (index < 0) index = items.length - 1;
+    update();
+}
 
-            // 将图片元素插入主容器
-            mainBox.appendChild(imgDom);
+function auto() {
+    timer = setInterval(() => go(++index), 4000);
+}
+
+prev.onclick = () => { clearInterval(timer); go(--index); auto(); }
+next.onclick = () => { clearInterval(timer); go(++index); auto(); }
+createDots();
+auto();
+
+// 环形展示功能
+const campusData = [
+    {
+        img: "image/南湖图书馆.png",
+        title: "书香馆藏・图书馆研学",
+        text: "武汉理工大学坐拥南湖、西院、余家头三大现代化图书馆，馆藏纸质文献超 400 万册、电子资源超百个数据库，阅览席位近万席。馆内配备 24 小时自习室、静音研读区、数字资源体验区，从清晨的第一缕阳光到深夜的台灯微光，这里永远有埋头苦读的身影。学子们在此刷题备考、研读专业典籍、查阅前沿文献，沉浸式的静谧环境与浓厚学习氛围，成为理工学子沉淀学识、追逐目标的 “知识港湾”。"
+    },
+    {
+        img: "image/师者传道.png",
+        title: "师者传道・课堂研学",
+        text: "课堂是理工学子汲取知识的核心阵地，学校汇聚了一批深耕学术的名师学者，他们以严谨的教风、生动的授课方式，将专业理论与行业前沿动态深度融合。无论是阶梯教室里的深入浅出讲解，还是小班研讨课上的师生互动交流，每一堂课都紧扣学科核心，夯实专业根基。在这里，学子们不仅收获了扎实的学识，更在老师的启发下培养了批判性思维与问题解决能力，为后续专业学习与科研探索筑牢基础。"
+    },
+    {
+        img: "image/科研实训.png",
+        title: "科创实训・实验室研学",
+        text: "作为工科强校，武汉理工大学为学子搭建了覆盖材料、交通、机械、计算机等优势学科的高标准实验室与科创平台。学子们走出课本，走进实验室，亲手操作精密仪器、开展实验验证、攻克技术难题，将课堂上学到的理论知识转化为可落地的实践能力。从基础课程实验到国家级科创项目，从材料性能测试到智能系统开发，实验室里的每一次尝试、每一次突破，都在锤炼学子的工科实干素养与创新思维，为未来投身行业前沿打下坚实基础。"
+    },
+    {
+        img: "image/学海争锋.png",
+        title: "学海争锋・竞赛研学",
+        text: "校园内各类学科竞赛与专业比拼氛围浓厚，学校大力支持学子组队参与数学建模、电子设计、机械创新、智能车等各类赛事。学子们组建团队，利用课余时间研讨知识点、打磨方案、反复测试，在备赛过程中查漏补缺、互帮互助。从校内选拔赛的初露锋芒，到省级、国家级赛场的并肩作战，每一次竞赛都是一次对学识、抗压能力与团队协作的全方位锻炼，不仅拓宽了学子的学术视野，更让他们在竞争中突破自我，收获成长。"
+    },
+    {
+        img: "image/知行致远.png",
+        title: "知行致远・户外研学交流",
+        text: "学习不止局限于教室与图书馆，校园的湖畔、林荫道、飞马广场旁，处处可见学子学习交流的身影。清晨的南湖畔，学子们迎着朝阳晨读背诵；午后的林荫道上，小组围坐讨论学业难题；周末的校园里，同学们结伴开展户外研学，梳理知识体系、交流学习心得。这种轻松自在的学习模式，既缓解了学业压力，又促进了同学间的互助互鉴，让知识在交流中沉淀，在实践中深化。"
+    },
+    {
+        img: "image/朝夕共进.png",
+        title: "朝夕共进・宿舍勤学氛围",
+        text: "浓厚的学风浸润校园的每一个角落，宿舍成为理工学子晚间学习的重要阵地。在这里，室友们互相督促打卡学习，分享课堂笔记与备考技巧，讨论难题解法、交流学习经验。一盏台灯下，几个人伏案刷题、互相讲解，营造出互帮互助、共同进步的勤学氛围。朝夕相伴的陪伴与鼓励，让学子们在学业路上不再孤单，携手攻克难点、稳步前行，用点滴努力奔赴各自的目标。"
+    }
+];
+
+const mainBox = document.getElementById('box');
+const infoShowBox = document.getElementById('info');
+const circleRadius = 250;
+const moveDistance = 85;
+
+campusData.forEach((item, index) => {
+    const angle = (index / 6) * Math.PI * 2 - Math.PI / 2;
+    const posX = 360 + circleRadius * Math.cos(angle);
+    const posY = 360 + circleRadius * Math.sin(angle);
+
+    const imgDom = document.createElement('div');
+    imgDom.className = 'image-item';
+    imgDom.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
+    imgDom.style.left = `${posX - 65}px`;
+    imgDom.style.top = `${posY - 65}px`;
+
+    imgDom.addEventListener('mouseenter', function () {
+        document.querySelectorAll('.image-item').forEach((dom, idx) => {
+            const a = (idx / 6) * Math.PI * 2 - Math.PI / 2;
+            const offsetX = moveDistance * Math.cos(a);
+            const offsetY = moveDistance * Math.sin(a);
+            dom.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         });
-    </script>
+        infoShowBox.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
+        infoShowBox.classList.add('show');
+    });
+
+    imgDom.addEventListener('mouseleave', function () {
+        document.querySelectorAll('.image-item').forEach(dom => {
+            dom.style.transform = 'translate(0, 0)';
+        });
+        infoShowBox.classList.remove('show');
+    });
+
+    mainBox.appendChild(imgDom);
+});
+</script>
+
 </body>
 </html>
+<!-- 第四屏：资源共享平台介绍 -->
+<div class="section4">
+    <h2 class="section-title">薪火相传 · 共享互助</h2>
+    <div class="content-card">
+        <img src="image/毫厘网站.png" class="platform-img" alt="武理资源共享平台">
+        <p>这是由武理工学长们自发搭建的「毫厘资源共享平台」，是理工校园中薪火相传、互助共进的真实写照。平台集聚了历届学长学姐无私上传的海量学习资料，涵盖高数、线代、概率论等公共基础课，以及专业核心课笔记、实验报告模板、期中期末真题、竞赛备赛资料、保研考研经验等全品类优质资源，为同学们的学习之路提供了极大便利。</p>
+        <p>学长们不仅毫无保留地分享整理好的资料，更主动分享高效学习方法、备考避坑指南、专业选择建议和成长心得，用亲身经历为学弟学妹指引方向、答疑解惑。没有门槛、没有保留，每一份文件、每一条留言都藏着“前人栽树，后人乘凉”的真诚与热忱。</p>
+        <p>这种无私奉献、守望相助的精神，正是“学在理工”最温暖、最动人的内涵——它不只是个人的勤学奋进，更是代代相传的互助与成长。在这方小小的平台里，知识得以传递，温暖得以延续，优良学风得以传承，让每一位理工学子都能在求学路上少走弯路、收获力量。</p>
+    </div>
+</div>
+
+<style>
+/* 第四屏样式（和前三屏完全统一） */
+.section4 {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("image/南湖风景.png") no-repeat center center fixed;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-shadow: 0 0 25px rgba(110, 200, 255, 0.8);
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.content-card {
+    width: 900px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.platform-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.content-card p {
+    font-size: 17px;
+    line-height: 2.0;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+</style>
