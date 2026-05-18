@@ -27,7 +27,6 @@
         <div class="school-abbr">武汉理工大学</div>
     </div>
 
-    <!-- ✅ 正确导航栏：只在本页面滚动！！！ -->
     <nav class="nav-fixed" id="nav">
         <ul>
             <li><a href="#home"><i class="fas fa-home"></i> 首页</a></li>
@@ -35,18 +34,17 @@
             <li><a href="#food"><i class="fas fa-utensils"></i> 食在理工</a></li>
             <li><a href="#study"><i class="fas fa-book-open"></i> 学在理工</a></li>
             <li><a href="#sight"><i class="fas fa-map-marked-alt"></i> 游在理工</a></li>
-            <li><a href="javascript:void(0);" class="music-btn" onclick="toggleMusic()"><i class="fas fa-music"></i> 背景音乐</a></li>
+            <li><a href="javascript:void(0);" class="music-btn" onclick="MusicManager.toggle()"><i class="fas fa-music"></i> 背景音乐</a></li>
         </ul>
     </nav>
 
-    <!-- 首页 -->
     <section class="fullscreen-section home" id="home">
         <div class="container">
             <!--
 
             <h2 class="hero-subtitle">厚德博学 · 追求卓越</h2>
             -->
-            <div class="scroll-hint">↓ 探索校园 ↓</div>
+            <div class="scroll-hint"><a href="#intro">↓ 探索校园 ↓</a></div>
         </div>
     </section>
     <!-- 学校介绍板块（修改后） -->
@@ -59,13 +57,20 @@
                     <img src="image/南湖图书馆.png" alt="南湖图书馆">
                 </div>
                 <div class="slider-item">
-                    <img src="image/play1.png" alt="校园风景1">
+                    <img src="image/play1.png" alt="南湖体育馆">
                 </div>
                 <div class="slider-item">
                     <img src="image/飞马2.png" alt="飞马广场">
                 </div>
+                <div class="slider-item">
+                    <img src="image/newmain.png" alt="博学主楼">
+                </div>
+                <div class="slider-item">
+                    <img src="image/余区大门.jpg" alt="余区大门">
+                </div>
                 <button class="prev">←</button>
                 <button class="next">→</button>
+                <div class="slider-dots"></div>
             </div>
         </div>
 
@@ -84,18 +89,16 @@
             </p>
         </div>
     </div>
+    
 </section>
 
-    <!-- 食在理工 -->
     <section class="fullscreen-section food" id="food">
         <div class="section-content">
             <div class="food-title-img">
                 <button class="food-btn" onclick="showFoodContent()">食在理工</button>
                 <p class="feature-desc">舌尖上的WUT 品味校园烟火气</p>
             </div>
-        <!-- 左右竖向无限滚动容器 -->
         <div class="scroll-food-wrap">
-            <!-- 左侧竖向滚动卡片 悬浮卡片效果 -->
             <div class="scroll-box left-scroll">
                 <div class="scroll-list">
                     <div class="food-side-card">
@@ -146,7 +149,6 @@
                             <p>奶香芝士搭配甜糯玉米，盐焗风味浓郁，香甜可口，休闲小食必备。</p>
                         </div>
                     </div>
-                    <!-- 复制一遍实现无缝无限滚动 -->
                    <div class="food-side-card">
                         <img src="image/food1.png" alt="一食堂">
                         <span>智苑麻辣烫</span>
@@ -198,7 +200,6 @@
                 </div>
             </div>
 
-            <!-- 右侧竖向滚动卡片 -->
             <div class="scroll-box right-scroll">
                 <div class="scroll-list">
                     <div class="food-side-card">
@@ -249,8 +250,6 @@
                             <p>皮薄馅大，汤汁鲜美，口感顺滑，暖心暖胃，校园经典小吃。</p>
                         </div>
                     </div>   
-                
-                    <!-- 复制一遍无缝滚动 -->
                    <div class="food-side-card">
                         <img src="image/food7.png" alt="特色美食">
                         <span>五谷杂粮饭</span>
@@ -304,25 +303,71 @@
         </div>
         </div>
     </section>
+<<<<<<< HEAD
  <!-- 学在理工 -->
  <section class="fullscreen-section study" id="study">
+=======
+
+    <section id="food-detail" style="display: none; min-height: 100vh; background: #ffffff; padding: 50px; position:relative; z-index:9999;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+             <h2>校园美食详情</h2>
+             <p style="margin-top: 20px;">这里写你要展示的食堂、美食介绍，比如越苑食堂、智苑麻辣烫、特色菜品等内容。</p>
+        <button onclick="backToFood()" style="margin-top: 30px; padding: 10px 20px;">返回主页</button>
+    </div>
+</section>
+
+<section class="fullscreen-section study" id="study">
+>>>>>>> ff5bd17e7d63e360659fdb8ac82a67582102dded
     <div class="section-content">
         <div class="study-title-img">
-        <h3 class="feature-title">
-            <a href="study.html" style="color: inherit; text-decoration: none;">学在理工</a>
-        </h3>
-        <p class="feature-desc">图书馆资源、自习室分布、特色专业介绍，助力你在学术道路上不断前行。</p>
+            <h3 class="feature-title">
+                <a href="study.html" style="color: inherit; text-decoration: none;">学在理工</a>
+            </h3>
+            <p class="feature-desc">图书馆资源、自习室分布、特色专业介绍，助力你在学术道路上不断前行。</p>
         </div>
-        <div class="study-circle-box">
-            <div class="circle-box" id="box">
-                <div class="circle-line"></div>
-                <div class="info-box" id="info"></div>
-            </div>
+
+        <!-- 修正文字显示问题的卡片目录 -->
+        <div style="width: 100%; max-width: 900px; margin: 50px auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+            
+            <!-- 卡片 1 -->
+            <a href="study.html#section1" style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 30px; text-decoration: none; color: #333; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6fc8ff, #0078d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(111, 200, 255, 0.5);">
+                    <span style="font-size: 36px;">🏆</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #333;">学科竞赛优势</h4>
+                <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">以赛促学，以学促创，全方位提升你的综合竞争力。</p>
+            </a>
+            
+            <!-- 卡片 2 -->
+            <a href="study.html#section2" style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 30px; text-decoration: none; color: #333; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6fc8ff, #0078d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(111, 200, 255, 0.5);">
+                    <span style="font-size: 36px;">📚</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #333;">勤学日常 · 理工百态</h4>
+                <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">记录校园学习生活的点点滴滴，展现不一样的理工风采。</p>
+            </a>
+            
+            <!-- 卡片 3 -->
+            <a href="study.html#section3" style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 30px; text-decoration: none; color: #333; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6fc8ff, #0078d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(111, 200, 255, 0.5);">
+                    <span style="font-size: 36px;">🔬</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #333;">科研实力 · 硬核理工</h4>
+                <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">走进国家级实验室，感受前沿科技的魅力与力量。</p>
+            </a>
+            
+            <!-- 卡片 4 -->
+            <a href="study.html#section4" style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 30px; text-decoration: none; color: #333; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6fc8ff, #0078d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 15px rgba(111, 200, 255, 0.5);">
+                    <span style="font-size: 36px;">🤝</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #333;">薪火相传 · 共享互助</h4>
+                <p style="font-size: 14px; color: #666; line-height: 1.6; margin: 0;">学长学姐经验分享，让你的求学之路不再孤单。</p>
+            </a>
         </div>
     </div>
 </section>
 
-    <!-- 游在理工 -->
     <section class="fullscreen-section sight" id="sight">
         <div class="diamond-card">
             <div class="diamond-content">
@@ -330,12 +375,11 @@
             </div>
         </div>
     </section>
-    <!-- 👇 新增：隐藏的景色详情内容区域 -->
+
     <section id="sight-detail" style="display: none; min-height: 100vh; background: #fff; padding: 50px;">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <h2>校园景点详情</h2>
             <p style="margin-top: 20px;">这里写你要展示的景点内容，比如飞马广场、南湖风景、特色建筑等。</p>
-            <!-- 返回按钮，点击回到游在理工板块 -->
             <button onclick="backToSight()" style="margin-top: 30px; padding: 10px 20px;">返回主页</button>
     </div>
 </section>
@@ -343,11 +387,20 @@
     <footer>
         <p class="footer-text">© 2026 武汉理工大学 校园导航测试页面 | 数据来源：武汉理工大学官网</p>
     </footer>
+<<<<<<< Updated upstream
 
+    <script src="src/js/music.js"></script>
+    <script src="src/js/script.js"></script>
+=======
+    <script src="src/js/music.js"></script>
+    <script src="src/js/script.js"></script>
+
+>>>>>>> Stashed changes
     <script src="src/js/sakura.js"></script>
     <script src="src/js/play.js"></script>
     <script src="src/js/study.js"></script>
     <script src="src/js/food.js"></script>
+<<<<<<< HEAD
 
     <script>
         function toggleMusic(){const music=document.getElementById('bgMusic');music.paused?music.play():music.pause();}
@@ -357,12 +410,14 @@
             window.location.href = 'food.html';
     }
     </script>
+=======
+    
+>>>>>>> ff5bd17e7d63e360659fdb8ac82a67582102dded
 
 
     <button id="themeToggle" class="floating-theme-btn" aria-label="切换夜间模式">
         🌙
     </button>
-     <script src="src/js/script.js"></script>
 
 </body>
 </html>
