@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>食在理工 - 武汉理工大学校园美食</title>
+    <link rel="icon" href="./image/wuhan-university-of-technology-logo-1024px.png" type="image/png">
+    <link rel="stylesheet" href="fontawesome-free-7.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="src/css/core.css">
+    <link rel="stylesheet" href="src/css/page.css">
+    <link rel="stylesheet" href="src/css/food.css">
+</head>
+
+    <body data-page="food" class="food-body"></body>
+    <!-- 食在理工主要内容 -->
+    <main class="food-page">
+        <div class="food-container">
+            <!-- 返回首页按钮 -->
+            <a href="index.html" class="back-home">← 返回首页</a>
+
+            <!-- 页面标题 -->
+            <div class="food-header">
+                <h1>🍽️ 食在理工</h1>
+                <p>快来pink你喜欢的美食吧!</p>
+            </div>
+
+            <!-- 🏆 人气 TOP3 榜单 -->
+            <div class="top-three">
+                <h2>🏆 本月最受欢迎窗口 TOP3</h2>
+                <div class="rankings">
+                    <div class="rank-card rank-1">
+                        <div class="rank-number">1</div>
+                        <img src="image/ramen.jpg" alt="日式拉面" loading="lazy">
+                        <h3>一食堂 · 日式拉面</h3>
+                        <p class="likes">❤️ 1289 人推荐</p>
+                        <blockquote>"汤底浓郁，叉烧超大块，期末复习的慰藉！"<br>—— 大二·小李</blockquote>
+                    </div>
+                    <div class="rank-card rank-2">
+                        <div class="rank-number">2</div>
+                        <img src="image/rice.jpg" alt="烤肉饭" loading="lazy">
+                        <h3>二食堂 · 烤肉饭</h3>
+                        <p class="likes">❤️ 1056 人推荐</p>
+                        <blockquote>"性价比之王，肉多到铺满，每天排队半小时"<br>—— 大三·小王</blockquote>
+                    </div>
+                    <div class="rank-card rank-3">
+                        <div class="rank-number">3</div>
+                        <img src="image/milk.jpg" alt="酸奶水果捞" loading="lazy">
+                        <h3>西苑 · 酸奶水果捞</h3>
+                        <p class="likes">❤️ 892 人推荐</p>
+                        <blockquote>"减肥神器，水果新鲜，酸奶浓稠，夏天必吃"<br>—— 大一·小张</blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📂 分类导航 -->
+            <div class="category-nav">
+                <button class="cat-btn active" data-category="main">🍚 网红主食</button>
+                <button class="cat-btn" data-category="dessert">🍰 治愈甜品</button>
+                <button class="cat-btn" data-category="drink">🥤 清爽饮品</button>
+            </div>
+
+            <!-- 🍱 美食卡片网格 -->
+            <div class="food-grid" id="foodGrid">
+                <!-- ===== 主食类 ===== -->
+                <div class="food-card" data-category="main">
+                    <img src="image/noodle1.jpg" alt="豚骨拉面" loading="lazy">
+                    <div class="card-content">
+                        <h3>豚骨拉面</h3>
+                        <p>一食堂 · 18元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>234</span></button>
+                            <span>👀 1.2k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-card" data-category="main">
+                    <img src="image/rice2.jpg" alt="招牌卤肉饭" loading="lazy">
+                    <div class="card-content">
+                        <h3>招牌卤肉饭</h3>
+                        <p>二食堂 · 15元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>187</span></button>
+                            <span>👀 890</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-card" data-category="main">
+                    <img src="image/chicken.jpg" alt="照烧鸡排饭" loading="lazy">
+                    <div class="card-content">
+                        <h3>照烧鸡排饭</h3>
+                        <p>三食堂 · 16元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>156</span></button>
+                            <span>👀 670</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== 甜品类 ===== -->
+                <div class="food-card" data-category="dessert">
+                    <img src="image/cake.jpg" alt="提拉米苏" loading="lazy">
+                    <div class="card-content">
+                        <h3>提拉米苏</h3>
+                        <p>西点坊 · 12元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>98</span></button>
+                            <span>👀 456</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-card" data-category="dessert">
+                    <img src="image/mochi.jpg" alt="抹茶大福" loading="lazy">
+                    <div class="card-content">
+                        <h3>抹茶大福</h3>
+                        <p>甜品屋 · 8元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>76</span></button>
+                            <span>👀 342</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-card" data-category="dessert">
+                    <img src="image/waffle.jpg" alt="华夫饼" loading="lazy">
+                    <div class="card-content">
+                        <h3>比利时华夫饼</h3>
+                        <p>咖啡厅 · 10元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>112</span></button>
+                            <span>👀 567</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== 饮品类 ===== -->
+                <div class="food-card" data-category="drink">
+                    <img src="image/tea.jpg" alt="芝士奶盖茶" loading="lazy">
+                    <div class="card-content">
+                        <h3>芝士奶盖茶</h3>
+                        <p>奶茶铺 · 10元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>156</span></button>
+                            <span>👀 720</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-card" data-category="drink">
+                    <img src="image/juice.jpg" alt="鲜榨果汁" loading="lazy">
+                    <div class="card-content">
+                        <h3>鲜榨果汁</h3>
+                        <p>水果店 · 8元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>134</span></button>
+                            <span>👀 589</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="food-card" data-category="drink">
+                    <img src="image/coffee.jpg" alt="拿铁咖啡" loading="lazy">
+                    <div class="card-content">
+                        <h3>拿铁咖啡</h3>
+                        <p>图书馆咖啡厅 · 15元</p>
+                        <div class="stats">
+                            <button class="like-btn">❤️ <span>98</span></button>
+                            <span>👀 421</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 夜间模式按钮 -->
+    <button id="midnightBtn" class="midnight-btn">🌙</button>
+
+    <script src="src/js/food.js"></script>
+</body>
+</html>
