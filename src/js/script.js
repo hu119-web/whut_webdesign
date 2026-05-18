@@ -51,8 +51,6 @@ function toggleMusic() {
  // ========== 学校介绍轮播图 ==========
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.slider-item');
-
- const items = document.querySelectorAll('.slider-item');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     const dotsContainer = document.querySelector('.slider-dots');
