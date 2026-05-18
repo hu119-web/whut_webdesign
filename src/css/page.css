@@ -244,11 +244,29 @@ footer {
 
 /* ========== 食在理工板块样式 ========== */
 #food {
-  background: url("../../image/food11.png");
+  background-image: url("../../image/food11.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+}
+
+/* 深色模式遮罩层 - 使用你的变量 */
+#food::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-theme="dark"] #food::before {
+    background-color: var(--section-overlay-dark, rgba(0, 0, 0, 0.6));
 }
 
 #food .section-content {
@@ -259,47 +277,49 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--section-overlay);
     position: relative;
     z-index: 1;
     overflow: hidden; 
+    transition: background 0.3s ease;
 }
+
 .food-btn {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--btn-bg);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
     padding: 10px 16px;
     font-family: inherit;
     font-size: 2.5em;
-    color: inherit;
+    color: var(--text-color);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 .food-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--btn-bg-hover);
     border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 16px var(--shadow-color);
 }
 
-/* 侧边竖向无限滚动容器 - 关键修复：限制溢出 */
+/* 侧边竖向无限滚动容器 */
 .scroll-food-wrap {
     position: relative;
     width: 100%;
     height: 600px;
     margin-top: 50px;
     z-index: 2;
-    overflow: hidden; /* 限制整个滚动区域不超出板块 */
+    overflow: hidden;
 }
 
-/* 左右滚动盒子 - 允许内容超出自身，但被父容器裁剪 */
+/* 左右滚动盒子 */
 .scroll-box {
     position: absolute;
     width: 200px;
     height: 100%;
-    overflow: visible; /* 允许悬浮卡片超出滚动盒子 */
+    overflow: visible;
 }
 .left-scroll {
     left: 20px;
@@ -308,7 +328,7 @@ footer {
     right: 20px;
 }
 
-/* 滚动列表 - 解决鼠标穿透问题 */
+/* 滚动列表 */
 .scroll-list {
     display: flex;
     flex-direction: column;
@@ -316,43 +336,46 @@ footer {
     pointer-events: unset !important;
 }
 
-/* 美食卡片基础样式 - 强制定位与可见性 */
+/* 美食卡片基础样式 */
 .food-side-card {
-    background: #fff;
+    background: var(--food-card-bg);
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    overflow: visible !important; /* 允许悬浮卡片超出卡片自身 */
+    box-shadow: 0 2px 8px var(--shadow-color);
+    overflow: visible !important;
     text-align: center;
     transition: 0.3s;
     position: relative !important;
     z-index: 3;
 }
+
 .food-side-card:hover{
     transform: scale(1.05);
 }
+
 .food-side-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
+
 .food-side-card span {
     display: block;
     padding: 2px 0;
     font-size: 14px;
-    color: #333;
+    color: var(--text-color);
 }
 
-/* 悬浮卡片 - 避开transform冲突，改用margin-top居中 */
+/* 悬浮卡片 */
 .food-hover-card {
     position: absolute !important;
     top: 50% !important;
-    margin-top: -110px !important; /* 卡片高度约220px，取一半实现垂直居中 */
+    margin-top: -110px !important;
     width: 220px !important;
     padding: 14px 16px !important;
-    background: #fff !important;
+    background: var(--hover-card-bg) !important;
     border-radius: 8px !important;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.2) !important;
-    z-index: 9999 !important; /* 最高层级，确保在最上层 */
+    box-shadow: 0 3px 15px var(--shadow-color) !important;
+    z-index: 9999 !important;
     opacity: 0 !important;
     visibility: hidden !important;
     transition: all 0.3s ease !important;
@@ -367,12 +390,13 @@ body .food-side-card:hover .food-hover-card {
 /* 卡片文字样式 */
 .food-hover-card h4 {
     font-size: 16px !important;
-    color: #c0392b !important;
+    color: var(--hover-card-title) !important;
     margin: 0 0 6px 0 !important;
 }
+
 .food-hover-card p {
     font-size: 13px !important;
-    color: #333 !important;
+    color: var(--text-color) !important;
     line-height: 1.5 !important;
     margin: 0 !important;
 }
@@ -389,17 +413,19 @@ body .food-side-card:hover .food-hover-card {
     left: auto !important;
 }
 
-/* 原有无限滚动动画 - 不受影响 */
+/* 无限滚动动画 */
 .left-scroll .scroll-list{
     animation: scrollUp 30s linear infinite;
 }
 .right-scroll .scroll-list{
     animation: scrollDown 30s linear infinite;
 }
+
 @keyframes scrollUp {
     0%{transform: translateY(0);}
     100%{transform: translateY(-50%);}
 }
+
 @keyframes scrollDown {
     0%{transform: translateY(-50%);}
     100%{transform: translateY(0);}
@@ -424,6 +450,11 @@ body .food-side-card:hover .food-hover-card {
     margin-bottom: 2rem;           
     color: white;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] #food .section-content .food-title-img {
+    filter: brightness(0.7);
 }
 
 .section-content .feature-title {

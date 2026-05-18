@@ -47,9 +47,53 @@ function toggleMusic() {
 // 可选：页面加载时自动播放音乐（需用户交互，建议注释掉，保持原样）
 // 如果希望一进入就播放，需在body上添加一个点击或滚动监听
 
+<<<<<<< HEAD
  // ========== 学校介绍轮播图 ==========
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.slider-item');
+=======
+<<<<<<< HEAD
+// 夜间模式功能
+(function initTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) return;
+    
+    // 读取用户之前的选择
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';  // 太阳图标表示当前是暗色模式，点它变亮
+        if (themeToggle.classList.contains('floating-theme-btn')) {
+            themeToggle.innerHTML = '☀️';
+        }
+    }
+    
+    // 切换主题
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        
+        if (isDark) {
+            // 切换到亮色模式
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            themeToggle.textContent = '🌙';
+            if (themeToggle.classList.contains('floating-theme-btn')) {
+                themeToggle.innerHTML = '🌙';
+            }
+        } else {
+            // 切换到暗色模式
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeToggle.textContent = '☀️';
+            if (themeToggle.classList.contains('floating-theme-btn')) {
+                themeToggle.innerHTML = '☀️';
+            }
+        }
+    });
+})();
+=======
+ const items = document.querySelectorAll('.slider-item');
+>>>>>>> fff48edbda7529c1edb1ac9b16e67c2301263468
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     const dotsContainer = document.querySelector('.slider-dots');
@@ -89,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function prevSlide() {
         goToSlide(currentIndex - 1);
     }
+<<<<<<< HEAD
     
     // 自动播放
     function startAutoPlay() {
@@ -121,3 +166,22 @@ document.addEventListener('DOMContentLoaded', function() {
     slider.addEventListener('mouseenter', stopAutoPlay);
     slider.addEventListener('mouseleave', startAutoPlay);
 });
+=======
+
+    // 自动播放（3秒切换一次）
+    let timer = setInterval(next, 3000);
+
+    // 点击按钮
+    nextBtn.onclick = () => {
+      clearInterval(timer); // 暂停自动
+      next();
+      timer = setInterval(next, 3000); // 重启
+    };
+
+    prevBtn.onclick = () => {
+      clearInterval(timer);
+      prev();
+      timer = setInterval(next, 3000);
+    };
+>>>>>>> 47cf120a95dd7c7952ee0f4132cf7a5bef65f77a
+>>>>>>> fff48edbda7529c1edb1ac9b16e67c2301263468

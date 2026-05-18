@@ -10,6 +10,7 @@ function backToFood() {
     document.getElementById('food-detail').style.display = 'none';
     document.getElementById('food').style.display = 'flex';
 
+    document.getElementById('food').scrollIntoView({ behavior: 'smooth' });
     const foodRect = document.getElementById('food').getBoundingClientRect();
     window.scrollTo({
         top: foodRect.top + window.pageYOffset,
