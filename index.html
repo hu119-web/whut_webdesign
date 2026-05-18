@@ -43,6 +43,7 @@
             <div class="scroll-hint">↓ 探索校园 ↓</div>
         </div>
     </section>
+<<<<<<< HEAD
 
     <section class="fullscreen-section intro" id="intro" >
         <div class="slider">
@@ -58,8 +59,44 @@
 
             <button class="prev">←</button>
             <button class="next">→</button>
+=======
+    <!-- 学校介绍板块（修改后） -->
+<section class="fullscreen-section intro" id="intro">
+    <div class="intro-container">
+        <!-- 左：轮播图 -->
+        <div class="intro-slider">
+            <div class="slider">
+                <div class="slider-item active">
+                    <img src="image/南湖图书馆.png" alt="南湖图书馆">
+                </div>
+                <div class="slider-item">
+                    <img src="image/play1.png" alt="校园风景1">
+                </div>
+                <div class="slider-item">
+                    <img src="image/飞马2.png" alt="飞马广场">
+                </div>
+                <button class="prev">←</button>
+                <button class="next">→</button>
+            </div>
+>>>>>>> bf74a4ed2cdd83787ef801bd7a9e578427fb5218
         </div>
-    </section>
+
+        <!-- 右：学校简介文字 -->
+        <div class="intro-text">
+            <h2 class="intro-title">武汉理工大学</h2>
+            <p class="intro-desc">
+                武汉理工大学是教育部直属全国重点大学，首批列入国家“211工程”和“双一流”建设高校。
+                学校现有马房山、余家头和南湖三个校区，占地面积近4000亩，在校普通本科生36000余人，
+                博士、硕士生18000余人。学校以材料科学与工程、船舶与海洋工程、交通运输工程等优势学科为引领，
+                秉承“厚德博学，追求卓越”的校训，致力于培养具有卓越追求和创新能力的高素质人才。
+            </p>
+            <p class="intro-desc">
+                近年来，学校不断深化教育教学改革，加强创新创业教育，毕业生就业率保持在95%以上，
+                为社会输送了大批优秀人才。校园环境优美，学习氛围浓厚，是莘莘学子求学的理想之地。
+            </p>
+        </div>
+    </div>
+</section>
 
     <section class="fullscreen-section food" id="food">
         <div class="section-content">
@@ -318,7 +355,6 @@
         <p class="footer-text">© 2026 武汉理工大学 校园导航测试页面 | 数据来源：武汉理工大学官网</p>
     </footer>
 
-    <script src="src/js/script.js"></script>
     <script src="src/js/sakura.js"></script>
     <script src="src/js/play.js"></script>
     <script src="src/js/study.js"></script>
@@ -327,6 +363,12 @@
     <script>
         function toggleMusic(){const music=document.getElementById('bgMusic');music.paused?music.play():music.pause();}
     </script>
+
+
+    <button id="themeToggle" class="floating-theme-btn" aria-label="切换夜间模式">
+        🌙
+    </button>
+     <script src="src/js/script.js"></script>
 
 </body>
 </html>

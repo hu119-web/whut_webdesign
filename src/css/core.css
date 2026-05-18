@@ -5,23 +5,77 @@
     box-sizing: border-box;
 }
 
+/*======主题变量======*/
+:root {
+    /* 基础颜色 */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f8f9fa;
+    --nav-bg: rgba(0, 0, 0, 0.3);
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    
+    /* 板块相关变量 */
+    --section-overlay: rgba(255, 255, 255, 0.3);
+    --section-overlay-dark: rgba(0, 0, 0, 0.6);
+    --btn-bg: rgba(255, 255, 255, 0.15);
+    --btn-bg-hover: rgba(255, 255, 255, 0.3);
+    --food-card-bg: #ffffff;
+    --hover-card-bg: #ffffff;
+    --hover-card-title: #c0392b;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --nav-bg: rgba(0, 0, 0, 0.6);
+    --border-color: #444444;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.65);
+    
+    /* 深色模式板块变量 */
+    --section-overlay: rgba(0, 0, 0, 0.5);
+    --btn-bg: rgba(0, 0, 0, 0.5);
+    --btn-bg-hover: rgba(0, 0, 0, 0.7);
+    --food-card-bg: #2d2d2d;
+    --hover-card-bg: #2d2d2d;
+    --hover-card-title: #ffaa88;
+}
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: transparent;
+    color: var(--text-color);
 }
 
 body {
     font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
     line-height: 1.6;
-    color: #333;
     min-height: 100vh;
+    position: relative;
+}
+
+/* 背景图处理方案 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url("../../image/校门.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    z-index: -2;
 }
 
+[data-theme="dark"] body::before {
+    filter: brightness(0.4);  /* 调暗背景图 */
+}
 
 /*=========入场动画=========*/
 .enter{
@@ -164,24 +218,31 @@ body {
     text-shadow: 1px 1px 3px white;
 }
 
+/* 深色模式下校名颜色调整 */
+[data-theme="dark"] .school-abbr {
+    color: #88aadd;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
 /*=========导航栏=========*/
 .nav-fixed {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 ul {
     list-style-type: none;
     display: flex;
     gap: 5px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--nav-bg);
     padding: 10px 15px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 li {
@@ -222,4 +283,44 @@ li a:hover {
 
 li a:hover::after {
     width: 80%;
+}
+
+/* 卡片样式补充 */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* 悬浮按钮样式 */
+.floating-theme-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #002248;
+    color: white;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/* 深色模式下的悬浮按钮 */
+[data-theme="dark"] .floating-theme-btn {
+    background: #ffd700;
+    color: #1a1a1a;
 }
